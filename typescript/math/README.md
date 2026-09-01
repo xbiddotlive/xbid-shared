@@ -38,6 +38,7 @@ pnpm install
 pnpm typecheck
 pnpm test
 pnpm vectors
+pnpm vectors:fixed-point
 pnpm thresholds
 pnpm analyze
 pnpm analyze:fixed-b
@@ -85,6 +86,7 @@ console.log({
 analysis/economic-parameters.v1.4.json
 analysis/fixed-b-decision.v1.json
 test-vectors/crown-thresholds.v1.4.json
+test-vectors/fixed-point-benchmark.v1.json
 ```
 
 第二个文件记录 Testnet 暂定 `b = 270,000` 及其与历史 `b = 300,000`

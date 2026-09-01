@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "generatedBy": "decimal.js with 80-digit precision and ROUND_HALF_EVEN",
+  "units": "signed WAD unless a field says otherwise",
+  "fixedPointDomain": {
+    "expInputWad": "[-40e18, 0]",
+    "lnInputWad": "[1, 100e18]",
+    "note": "XBID log-sum-exp normalizes every exponential input to a non-positive value."
+  },
+  "primitives": {
+    "exp": [
+      {
+        "inputWad": "-40000000000000000000",
+        "expectedWad": "4"
+      },
+      {
+        "inputWad": "-20000000000000000000",
+        "expectedWad": "2061153622"
+      },
+      {
+        "inputWad": "-5000000000000000000",
+        "expectedWad": "6737946999085467"
+      },
+      {
+        "inputWad": "-1000000000000000000",
+        "expectedWad": "367879441171442322"
+      },
+      {
+        "inputWad": "0",
+        "expectedWad": "1000000000000000000"
+      }
+    ],
+    "ln": [
+      {
+        "inputWad": "1",
+        "expectedWad": "-41446531673892822312"
+      },
+      {
+        "inputWad": "10000000000000000",
+        "expectedWad": "-4605170185988091368"
+      },
+      {
+        "inputWad": "1000000000000000000",
+        "expectedWad": "0"
+      },
+      {
+        "inputWad": "98000000000000000000",
+        "expectedWad": "4584967478670571920"
+      },
+      {
+        "inputWad": "100000000000000000000",
+        "expectedWad": "4605170185988091368"
+      }
+    ]
+  },
+  "lmsr": [
+    {
+      "id": "INITIAL",
+      "qAWad": "0",
+      "qBWad": "0",
+      "expectedLogPartitionWad": "4605170185988091368",
+      "expectedCostWad": "0",
+      "expectedPriceAWad": "10000000000000000",
+      "expectedPriceBWad": "10000000000000000",
+      "expectedNeutralPriceWad": "980000000000000000"
+    },
+    {
+      "id": "BUY_A_100",
+      "qAWad": "9724569143406335335127",
+      "qBWad": "0",
+      "expectedLogPartitionWad": "4605536852654758035",
+      "expectedCostWad": "99000000000000000000",
+      "expectedPriceAWad": "10362933458133143",
+      "expectedPriceBWad": "9996334005473403",
+      "expectedNeutralPriceWad": "979640732536393454"
+    },
+    {
+      "id": "BUY_A_10000",
+      "qAWad": "419828990066228440540674",
+      "qBWad": "0",
+      "expectedLogPartitionWad": "4641836852654758035",
+      "expectedCostWad": "9900000000000000000000",
+      "expectedPriceAWad": "45642559871694828",
+      "expectedPriceBWad": "9639974142710153",
+      "expectedNeutralPriceWad": "944717465985595018"
+    },
+    {
+      "id": "MIXED_AFTER_TWO_BUYS",
+      "qAWad": "419828990066228440540674",
+      "qBWad": "289266855331671009612044",
+      "expectedLogPartitionWad": "4660170185988091368",
+      "expectedCostWad": "14850000000000000000000",
+      "expectedPriceAWad": "44813403432005167",
+      "expectedPriceBWad": "27631151573580640",
+      "expectedNeutralPriceWad": "927555444994414192"
+    },
+    {
+      "id": "BALANCED_30M",
+      "qAWad": "30000000000000000000000000",
+      "qBWad": "30000000000000000000000000",
+      "expectedLogPartitionWad": "111804258291671056421",
+      "expectedCostWad": "28943753788534400564172937",
+      "expectedPriceAWad": "500000000000000000",
+      "expectedPriceBWad": "500000000000000000",
+      "expectedNeutralPriceWad": "0"
+    },
+    {
+      "id": "SKEWED_30M",
+      "qAWad": "30000000000000000000000000",
+      "qBWad": "0",
+      "expectedLogPartitionWad": "111111111111111111111",
+      "expectedCostWad": "28756604049783215330630285",
+      "expectedPriceAWad": "1000000000000000000",
+      "expectedPriceBWad": "0",
+      "expectedNeutralPriceWad": "0"
+    }
+  ]
+}
