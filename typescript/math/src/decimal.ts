@@ -41,3 +41,16 @@ export function decimalToUnitsFloor(value: DecimalJs, decimals: number): bigint 
       .toFixed(0),
   )
 }
+
+export function decimalToUnitsCeil(value: DecimalJs, decimals: number): bigint {
+  if (value.isNegative()) {
+    throw new RangeError('cannot convert a negative value to unsigned units')
+  }
+
+  return BigInt(
+    value
+      .mul(pow10(decimals).toString())
+      .toDecimalPlaces(0, DecimalJs.ROUND_CEIL)
+      .toFixed(0),
+  )
+}

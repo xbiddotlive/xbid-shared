@@ -86,6 +86,10 @@ export interface QuoteCommon {
   readonly feeUnits: bigint
   readonly feeAllocation: FeeAllocation
   readonly reserveDeltaUnits: bigint
+  readonly requiredReserveBeforeUnits: bigint
+  readonly requiredReserveAfterUnits: bigint
+  readonly reserveSurplusBeforeUnits: bigint
+  readonly reserveSurplusAfterUnits: bigint
   readonly reserveBufferBefore: string
   readonly reserveBufferAfter: string
   readonly quoteExpirySeconds: number

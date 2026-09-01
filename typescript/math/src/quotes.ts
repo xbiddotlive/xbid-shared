@@ -1,7 +1,6 @@
 import type { Decimal as DecimalJs } from 'decimal.js'
 import { DEFAULT_MARKET_CONFIG, INITIAL_FEE_SPLIT } from './constants.js'
 import {
-  decimal,
   decimalToString,
   decimalToUnitsFloor,
   unitsToDecimal,
@@ -14,6 +13,7 @@ import {
   pricesDecimal,
   quantityForSide,
   relativePriceChangeBps,
+  requiredReserveUnits,
   reserveBuffer,
   solveBuyQuantity,
 } from './lmsr.js'
@@ -63,10 +63,11 @@ function sidePrice(state: MarketState, side: Side, config: MarketConfig): Decima
 }
 
 function validateStateReserve(state: MarketState, config: MarketConfig): void {
-  const buffer = reserveBuffer(state, config)
-  const tolerance = decimal('1e-60')
-  if (buffer.lt(tolerance.neg())) {
-    throw new RangeError(`reserve is below LMSR cost by ${buffer.abs().toString()}`)
+  const requiredUnits = requiredReserveUnits(state, config)
+  if (state.reserveUnits < requiredUnits) {
+    throw new RangeError(
+      `reserve has ${state.reserveUnits.toString()} units but ceil(Cost) requires ${requiredUnits.toString()}`,
+    )
   }
 }
 
@@ -102,6 +103,8 @@ function commonFields(
   hasReferrer: boolean,
   config: MarketConfig,
 ) {
+  const requiredReserveBeforeUnits = requiredReserveUnits(stateBefore, config)
+  const requiredReserveAfterUnits = requiredReserveUnits(stateAfter, config)
   return {
     stateBefore,
     stateAfter,
@@ -117,6 +120,10 @@ function commonFields(
       config.bpsDenominator,
     ),
     reserveDeltaUnits: stateAfter.reserveUnits - stateBefore.reserveUnits,
+    requiredReserveBeforeUnits,
+    requiredReserveAfterUnits,
+    reserveSurplusBeforeUnits: stateBefore.reserveUnits - requiredReserveBeforeUnits,
+    reserveSurplusAfterUnits: stateAfter.reserveUnits - requiredReserveAfterUnits,
     reserveBufferBefore: decimalToString(reserveBuffer(stateBefore, config)),
     reserveBufferAfter: decimalToString(reserveBuffer(stateAfter, config)),
     quoteExpirySeconds: config.quoteExpirySeconds,
@@ -161,6 +168,7 @@ export function quoteBuy(params: BuyQuoteParams): BuyQuote {
     sideQuantityWei(params.state, params.side) + tokenOutputWei,
     params.state.reserveUnits + curveInputUnits,
   )
+  validateStateReserve(stateAfter, config)
   const tokenOutput = unitsToDecimal(tokenOutputWei, config.sideTokenDecimals)
   const beforePrice = sidePrice(params.state, params.side, config)
   const afterPrice = sidePrice(stateAfter, params.side, config)
@@ -227,6 +235,7 @@ export function quoteSell(params: SellQuoteParams): SellQuote {
     throw new RangeError('SELL net output rounds to zero')
   }
   const stateAfter = { ...stateAfterBurn, reserveUnits: params.state.reserveUnits - grossOutputUnits }
+  validateStateReserve(stateAfter, config)
   const tokenInput = unitsToDecimal(params.tokenInputWei, config.sideTokenDecimals)
   const beforePrice = sidePrice(params.state, params.side, config)
   const afterPrice = sidePrice(stateAfter, params.side, config)
@@ -303,6 +312,7 @@ export function quoteFlip(params: FlipQuoteParams): FlipQuote {
     sideQuantityWei(stateAfterSourceBurn, targetSide) + destinationTokenOutputWei,
     params.state.reserveUnits - feeUnits,
   )
+  validateStateReserve(stateAfter, config)
   const sourceTokenInput = unitsToDecimal(
     params.sourceTokenInputWei,
     config.sideTokenDecimals,

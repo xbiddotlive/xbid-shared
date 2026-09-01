@@ -6,7 +6,6 @@ import {
   allocateFee,
   calculateTradingFee,
   cost,
-  decimal,
   dominanceDecimal,
   maximumDifferenceWeiStrictlyBelowDominance,
   minimumDifferenceWeiForDominance,
@@ -14,7 +13,7 @@ import {
   quoteBuy,
   quoteFlip,
   quoteSell,
-  reserveBuffer,
+  requiredReserveUnits,
   type FeeSplit,
   type MarketState,
 } from '../src/index.js'
@@ -26,7 +25,7 @@ function stateAtDifference(differenceWei: bigint): MarketState {
 }
 
 function expectSolvent(state: MarketState): void {
-  expect(reserveBuffer(state).gte(decimal('-1e-60'))).toBe(true)
+  expect(state.reserveUnits).toBeGreaterThanOrEqual(requiredReserveUnits(state))
 }
 
 describe('LMSR foundations', () => {
@@ -164,6 +163,7 @@ describe('quotes', () => {
     expect(quote.feeUnits).toBe(1_000_000n)
     expect(quote.curveInputUnits).toBe(99_000_000n)
     expect(quote.reserveDeltaUnits).toBe(99_000_000n)
+    expect(quote.reserveSurplusAfterUnits).toBeGreaterThanOrEqual(0n)
     expect(quote.stateAfter.qAWei).toBe(quote.tokenOutputWei)
     expect(quote.stateAfter.qBWei).toBe(0n)
     expect(quote.minimumTokenOutputWei).toBe(
@@ -171,6 +171,37 @@ describe('quotes', () => {
     )
     expect(Number(quote.pricesAfter.sideA)).toBeGreaterThan(0.01)
     expectSolvent(quote.stateAfter)
+  })
+
+  it('enforces Reserve against ceil(Cost) in settlement base units', () => {
+    const buy = quoteBuy({
+      state: INITIAL_MARKET_STATE,
+      side: 'A',
+      grossInputUnits: 100_000_000n,
+    })
+    const requiredUnits = requiredReserveUnits(buy.stateAfter)
+
+    expect(requiredUnits).toBeLessThanOrEqual(buy.stateAfter.reserveUnits)
+    expect(() =>
+      quoteBuy({
+        state: { ...buy.stateAfter, reserveUnits: requiredUnits - 1n },
+        side: 'B',
+        grossInputUnits: 1_000_000n,
+      }),
+    ).toThrow(/ceil\(Cost\)/)
+  })
+
+  it('solves a low-price-side BUY at maximum skew without exponent subtraction', () => {
+    const state: MarketState = {
+      qAWei: 0n,
+      qBWei: MAX_SIDE_QUANTITY_WEI,
+      reserveUnits: 28_756_604_049_784n,
+    }
+    const buy = quoteBuy({ state, side: 'A', grossInputUnits: 1_000_000n })
+
+    expect(buy.tokenOutputWei).toBeGreaterThan(26_000_000n * 10n ** 18n)
+    expect(buy.stateAfter.qAWei).toBeLessThanOrEqual(MAX_SIDE_QUANTITY_WEI)
+    expectSolvent(buy.stateAfter)
   })
 
   it('allows Sell All to clean a position below the normal 1 USDC minimum', () => {
@@ -235,6 +266,7 @@ describe('quotes', () => {
       flip.sourceGrossOutputUnits - flip.feeUnits,
     )
     expect(flip.reserveDeltaUnits).toBe(-flip.feeUnits)
+    expect(flip.reserveSurplusAfterUnits).toBeGreaterThanOrEqual(0n)
     expect(flip.feeUnits).toBe(
       calculateTradingFee(
         flip.sourceGrossOutputUnits,

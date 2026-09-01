@@ -19,10 +19,11 @@
     "vectors": "node --import tsx scripts/generate-test-vectors.ts",
     "vectors:fixed-point": "node --import tsx scripts/generate-fixed-point-benchmark-vectors.ts",
     "vectors:lmsr-boundaries": "node --import tsx scripts/generate-lmsr-boundary-vectors.ts",
+    "vectors:trade-rounding": "node --import tsx scripts/generate-trade-rounding-vectors.ts",
     "thresholds": "node --import tsx scripts/generate-crown-thresholds.ts",
     "analyze": "node --import tsx scripts/analyze-economic-parameters.ts",
     "analyze:fixed-b": "node --import tsx scripts/analyze-fixed-b-candidate.ts",
-    "verify": "pnpm typecheck && pnpm test && pnpm vectors && pnpm vectors:fixed-point && pnpm vectors:lmsr-boundaries && pnpm thresholds && pnpm analyze && pnpm analyze:fixed-b"
+    "verify": "pnpm typecheck && pnpm test && pnpm vectors && pnpm vectors:fixed-point && pnpm vectors:lmsr-boundaries && pnpm vectors:trade-rounding && pnpm thresholds && pnpm analyze && pnpm analyze:fixed-b"
   },
   "dependencies": {
     "decimal.js": "10.6.0"

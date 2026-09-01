@@ -91,6 +91,10 @@
           "referrerUnits": "100000"
         },
         "reserveDeltaUnits": "99000000",
+        "requiredReserveBeforeUnits": "0",
+        "requiredReserveAfterUnits": "99000000",
+        "reserveSurplusBeforeUnits": "0",
+        "reserveSurplusAfterUnits": "0",
         "reserveBufferBefore": "0",
         "reserveBufferAfter": "0.000000000000000000009086902239725607312473157273475654090051",
         "quoteExpirySeconds": 30
@@ -142,6 +146,10 @@
           "referrerUnits": "10000000"
         },
         "reserveDeltaUnits": "9900000000",
+        "requiredReserveBeforeUnits": "0",
+        "requiredReserveAfterUnits": "9900000000",
+        "reserveSurplusBeforeUnits": "0",
+        "reserveSurplusAfterUnits": "0",
         "reserveBufferBefore": "0",
         "reserveBufferAfter": "0.00000000000000000001365336785226038692491071706387853104486",
         "quoteExpirySeconds": 30
@@ -193,6 +201,10 @@
           "referrerUnits": "5000000"
         },
         "reserveDeltaUnits": "4950000000",
+        "requiredReserveBeforeUnits": "9900000000",
+        "requiredReserveAfterUnits": "14850000000",
+        "reserveSurplusBeforeUnits": "0",
+        "reserveSurplusAfterUnits": "0",
         "reserveBufferBefore": "0.00000000000000000001365336785226038692491071706387853104486",
         "reserveBufferAfter": "0.0000000000000000000320731493849355424438117898538240823092",
         "quoteExpirySeconds": 30
@@ -245,6 +257,10 @@
           "referrerUnits": "3925480"
         },
         "reserveDeltaUnits": "-3925480753",
+        "requiredReserveBeforeUnits": "14850000000",
+        "requiredReserveAfterUnits": "10924519247",
+        "reserveSurplusBeforeUnits": "0",
+        "reserveSurplusAfterUnits": "0",
         "reserveBufferBefore": "0.0000000000000000000320731493849355424438117898538240823092",
         "reserveBufferAfter": "0.00000007703374686856443808768448508404389089321",
         "quoteExpirySeconds": 30
@@ -299,6 +315,10 @@
           "referrerUnits": "6743483"
         },
         "reserveDeltaUnits": "-67434833",
+        "requiredReserveBeforeUnits": "9900000000",
+        "requiredReserveAfterUnits": "9832565167",
+        "reserveSurplusBeforeUnits": "0",
+        "reserveSurplusAfterUnits": "0",
         "reserveBufferBefore": "0.00000000000000000001365336785226038692491071706387853104486",
         "reserveBufferAfter": "0.0000003424844300269004235871507286225266713861",
         "quoteExpirySeconds": 30

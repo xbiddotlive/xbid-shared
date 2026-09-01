@@ -1,5 +1,11 @@
 import type { Decimal as DecimalJs } from 'decimal.js'
-import { Decimal, decimal, decimalToString, unitsToDecimal } from './decimal.js'
+import {
+  Decimal,
+  decimal,
+  decimalToString,
+  decimalToUnitsCeil,
+  unitsToDecimal,
+} from './decimal.js'
 import { DEFAULT_MARKET_CONFIG } from './constants.js'
 import type { Dominance, MarketConfig, MarketState, Prices, Side } from './types.js'
 
@@ -54,8 +60,16 @@ export function cost(
   state: MarketState,
   config: MarketConfig = DEFAULT_MARKET_CONFIG,
 ): DecimalJs {
+  const partition = logPartition(state, config)
   if (state.qAWei === 0n && state.qBWei === 0n) return decimal(0)
-  return decimal(config.b).mul(logPartition(state, config).sub(LOG_100))
+  return decimal(config.b).mul(partition.sub(LOG_100))
+}
+
+export function requiredReserveUnits(
+  state: MarketState,
+  config: MarketConfig = DEFAULT_MARKET_CONFIG,
+): bigint {
+  return decimalToUnitsCeil(cost(state, config), config.settlementDecimals)
 }
 
 export function reserveBuffer(
@@ -69,6 +83,7 @@ export function pricesDecimal(
   state: MarketState,
   config: MarketConfig = DEFAULT_MARKET_CONFIG,
 ): { sideA: DecimalJs; sideB: DecimalJs; neutral: DecimalJs } {
+  stateQuantities(state, config)
   if (state.qAWei === 0n && state.qBWei === 0n) {
     return {
       sideA: decimal('0.01'),

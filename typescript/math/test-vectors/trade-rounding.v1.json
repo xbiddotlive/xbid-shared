@@ -1,0 +1,254 @@
+{
+  "schemaVersion": 1,
+  "marketVersion": 1,
+  "settlementDecimals": 6,
+  "sideTokenDecimals": 18,
+  "integerRules": {
+    "requiredReserve": "ceil(costWad / 1e12)",
+    "tradingFee": "ceil(grossUnits * 100 / 10000)",
+    "buyTokenOutput": "floor(canonical quantity delta to Side Token wei)",
+    "sellGrossOutput": "floor(releasedCostWad / 1e12)",
+    "flipReserveDelta": "-feeUnits",
+    "solidityInverseGuard": "retry with one fewer Settlement base unit only when fixed-point output exceeds WAD budget"
+  },
+  "feeCeilExamples": [
+    {
+      "grossUnits": "1",
+      "feeUnits": "1"
+    },
+    {
+      "grossUnits": "1000000",
+      "feeUnits": "10000"
+    },
+    {
+      "grossUnits": "1000001",
+      "feeUnits": "10001"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "MINIMUM_BUY_A",
+      "quote": {
+        "kind": "BUY",
+        "side": "A",
+        "grossInputUnits": "1000000",
+        "curveInputUnits": "990000",
+        "tokenOutputWei": "98982035869143025105",
+        "minimumTokenOutputWei": "96012574793068734351",
+        "marginalPriceChangeBps": 3,
+        "averageExecutionPrice": "0.01000181488799449669536736030529668161476",
+        "stateBefore": {
+          "qAWei": "0",
+          "qBWei": "0",
+          "reserveUnits": "0"
+        },
+        "stateAfter": {
+          "qAWei": "98982035869143025105",
+          "qBWei": "0",
+          "reserveUnits": "990000"
+        },
+        "pricesBefore": {
+          "sideA": "0.01",
+          "sideB": "0.01",
+          "neutral": "0.98"
+        },
+        "pricesAfter": {
+          "sideA": "0.01000362999334500813388140648261610928014",
+          "sideB": "0.009999963333400555473395137308256402936564",
+          "neutral": "0.9799964066732544363927234562091274877833"
+        },
+        "dominanceBefore": {
+          "sideA": "0.5",
+          "sideB": "0.5"
+        },
+        "dominanceAfter": {
+          "sideA": "0.5000916500321857222760923863394109902317",
+          "sideB": "0.4999083499678142777239076136605890097683"
+        },
+        "feeUnits": "10000",
+        "feeAllocation": {
+          "protocolUnits": "7000",
+          "creatorUnits": "2000",
+          "referrerUnits": "1000"
+        },
+        "reserveDeltaUnits": "990000",
+        "requiredReserveBeforeUnits": "0",
+        "requiredReserveAfterUnits": "990000",
+        "reserveSurplusBeforeUnits": "0",
+        "reserveSurplusAfterUnits": "0",
+        "reserveBufferBefore": "0",
+        "reserveBufferAfter": "0.000000000000000000007185551549424056941245347194875726618472",
+        "quoteExpirySeconds": 30
+      }
+    },
+    {
+      "id": "NON_DIVISIBLE_FEE_BUY_B",
+      "quote": {
+        "kind": "BUY",
+        "side": "B",
+        "grossInputUnits": "1000001",
+        "curveInputUnits": "990000",
+        "tokenOutputWei": "98982035869143025105",
+        "minimumTokenOutputWei": "96012574793068734351",
+        "marginalPriceChangeBps": 3,
+        "averageExecutionPrice": "0.01000181488799449669536736030529668161476",
+        "stateBefore": {
+          "qAWei": "0",
+          "qBWei": "0",
+          "reserveUnits": "0"
+        },
+        "stateAfter": {
+          "qAWei": "0",
+          "qBWei": "98982035869143025105",
+          "reserveUnits": "990000"
+        },
+        "pricesBefore": {
+          "sideA": "0.01",
+          "sideB": "0.01",
+          "neutral": "0.98"
+        },
+        "pricesAfter": {
+          "sideA": "0.009999963333400555473395137308256402936564",
+          "sideB": "0.01000362999334500813388140648261610928014",
+          "neutral": "0.9799964066732544363927234562091274877833"
+        },
+        "dominanceBefore": {
+          "sideA": "0.5",
+          "sideB": "0.5"
+        },
+        "dominanceAfter": {
+          "sideA": "0.4999083499678142777239076136605890097683",
+          "sideB": "0.5000916500321857222760923863394109902317"
+        },
+        "feeUnits": "10001",
+        "feeAllocation": {
+          "protocolUnits": "7001",
+          "creatorUnits": "2000",
+          "referrerUnits": "1000"
+        },
+        "reserveDeltaUnits": "990000",
+        "requiredReserveBeforeUnits": "0",
+        "requiredReserveAfterUnits": "990000",
+        "reserveSurplusBeforeUnits": "0",
+        "reserveSurplusAfterUnits": "0",
+        "reserveBufferBefore": "0",
+        "reserveBufferAfter": "0.000000000000000000007185551549424056941245347194875726618472",
+        "quoteExpirySeconds": 30
+      }
+    },
+    {
+      "id": "SELL_ALL_AFTER_MINIMUM_BUY",
+      "quote": {
+        "kind": "SELL",
+        "side": "A",
+        "tokenInputWei": "98982035869143025105",
+        "grossOutputUnits": "989999",
+        "netOutputUnits": "980099",
+        "minimumNetOutputUnits": "950696",
+        "marginalPriceChangeBps": 3,
+        "averageExecutionPrice": "0.01000180478515117548880504175240748434538",
+        "sellAll": true,
+        "stateBefore": {
+          "qAWei": "98982035869143025105",
+          "qBWei": "0",
+          "reserveUnits": "990000"
+        },
+        "stateAfter": {
+          "qAWei": "0",
+          "qBWei": "0",
+          "reserveUnits": "1"
+        },
+        "pricesBefore": {
+          "sideA": "0.01000362999334500813388140648261610928014",
+          "sideB": "0.009999963333400555473395137308256402936564",
+          "neutral": "0.9799964066732544363927234562091274877833"
+        },
+        "pricesAfter": {
+          "sideA": "0.01",
+          "sideB": "0.01",
+          "neutral": "0.98"
+        },
+        "dominanceBefore": {
+          "sideA": "0.5000916500321857222760923863394109902317",
+          "sideB": "0.4999083499678142777239076136605890097683"
+        },
+        "dominanceAfter": {
+          "sideA": "0.5",
+          "sideB": "0.5"
+        },
+        "feeUnits": "9900",
+        "feeAllocation": {
+          "protocolUnits": "6930",
+          "creatorUnits": "1980",
+          "referrerUnits": "990"
+        },
+        "reserveDeltaUnits": "-989999",
+        "requiredReserveBeforeUnits": "990000",
+        "requiredReserveAfterUnits": "0",
+        "reserveSurplusBeforeUnits": "0",
+        "reserveSurplusAfterUnits": "1",
+        "reserveBufferBefore": "0.000000000000000000007185551549424056941245347194875726618472",
+        "reserveBufferAfter": "0.000001",
+        "quoteExpirySeconds": 30
+      }
+    },
+    {
+      "id": "ATOMIC_FLIP_HALF_POSITION",
+      "quote": {
+        "kind": "FLIP",
+        "sourceSide": "A",
+        "destinationSide": "B",
+        "sourceTokenInputWei": "209914495033114220270337",
+        "sourceGrossOutputUnits": "6743483237",
+        "destinationCurveInputUnits": "6676048404",
+        "destinationTokenOutputWei": "340770002566008393724007",
+        "minimumDestinationTokenOutputWei": "330546902489028141912286",
+        "destinationMarginalPriceChangeBps": 24465,
+        "sourceAverageExecutionPrice": "0.03212490512356571096042970918425874169207",
+        "destinationAverageExecutionPrice": "0.0195910683268161934189309801702571471865",
+        "stateBefore": {
+          "qAWei": "419828990066228440540674",
+          "qBWei": "0",
+          "reserveUnits": "9900000000"
+        },
+        "stateAfter": {
+          "qAWei": "209914495033114220270337",
+          "qBWei": "340770002566008393724007",
+          "reserveUnits": "9832565167"
+        },
+        "pricesBefore": {
+          "sideA": "0.04564255987169482831103077059887220218818",
+          "sideB": "0.009639974142710153249383527569708361594059",
+          "neutral": "0.9447174659855950184395857018314194362178"
+        },
+        "pricesAfter": {
+          "sideA": "0.02098125201290803067531813748586722112165",
+          "sideB": "0.03406530118221222694137754327132014074539",
+          "neutral": "0.944953446804879742383304319242812638133"
+        },
+        "dominanceBefore": {
+          "sideA": "0.82562351175511847644961049363517000867",
+          "sideB": "0.17437648824488152355038950636482999133"
+        },
+        "dominanceAfter": {
+          "sideA": "0.3811546917122499756998717085842345096633",
+          "sideB": "0.6188453082877500243001282914157654903367"
+        },
+        "feeUnits": "67434833",
+        "feeAllocation": {
+          "protocolUnits": "47204384",
+          "creatorUnits": "13486966",
+          "referrerUnits": "6743483"
+        },
+        "reserveDeltaUnits": "-67434833",
+        "requiredReserveBeforeUnits": "9900000000",
+        "requiredReserveAfterUnits": "9832565167",
+        "reserveSurplusBeforeUnits": "0",
+        "reserveSurplusAfterUnits": "0",
+        "reserveBufferBefore": "0.00000000000000000001365336785226038692491071706387853104486",
+        "reserveBufferAfter": "0.0000003424844300269004235871507286225266713861",
+        "quoteExpirySeconds": 30
+      }
+    }
+  ]
+}
