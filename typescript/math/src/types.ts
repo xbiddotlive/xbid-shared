@@ -4,6 +4,7 @@ export interface MarketConfig {
   readonly b: string
   readonly settlementDecimals: number
   readonly sideTokenDecimals: number
+  readonly maximumSideQuantityWei: bigint
   readonly tradingFeeBps: bigint
   readonly bpsDenominator: bigint
   readonly minimumBuyGrossUnits: bigint

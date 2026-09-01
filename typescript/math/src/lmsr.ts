@@ -28,6 +28,12 @@ export function stateQuantities(
   if (state.qAWei < 0n || state.qBWei < 0n || state.reserveUnits < 0n) {
     throw new RangeError('market state values cannot be negative')
   }
+  if (
+    state.qAWei > config.maximumSideQuantityWei ||
+    state.qBWei > config.maximumSideQuantityWei
+  ) {
+    throw new RangeError('side quantity exceeds the Market Version limit')
+  }
 
   return {
     qA: unitsToDecimal(state.qAWei, config.sideTokenDecimals),

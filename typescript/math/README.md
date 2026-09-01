@@ -18,6 +18,7 @@ XBID 的 TypeScript 数学参考实现。它是前端报价、后端校验、Ind
 - Sell All 尾仓清理、Review 余额精确匹配与零 Net Output 拒绝；
 - Crown 48% / 52% / 55% / 严格低于45%的有符号整数阈值；
 - Reserve Buffer 和固定测试向量。
+- Market Version 1 每侧 `30,000,000` Token 的 Quantity 上限。
 
 ## 单位
 
@@ -39,6 +40,7 @@ pnpm typecheck
 pnpm test
 pnpm vectors
 pnpm vectors:fixed-point
+pnpm vectors:lmsr-boundaries
 pnpm thresholds
 pnpm analyze
 pnpm analyze:fixed-b
@@ -87,6 +89,7 @@ analysis/economic-parameters.v1.4.json
 analysis/fixed-b-decision.v1.json
 test-vectors/crown-thresholds.v1.4.json
 test-vectors/fixed-point-benchmark.v1.json
+test-vectors/lmsr-boundaries.v1.json
 ```
 
 第二个文件记录 Testnet 暂定 `b = 270,000` 及其与历史 `b = 300,000`

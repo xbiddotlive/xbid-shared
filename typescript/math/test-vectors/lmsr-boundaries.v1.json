@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "marketVersion": 1,
+  "generatedBy": "decimal.js with 80-digit precision and ROUND_HALF_EVEN",
+  "constants": {
+    "wad": "1000000000000000000",
+    "bWad": "270000000000000000000000",
+    "maxSideQuantityWei": "30000000000000000000000000",
+    "maxRatioWad": "111111111111111111111",
+    "ln98Wad": "4584967478670571920",
+    "canonicalLn100Wad": "4605170185988091368",
+    "soladyInitialLogPartitionWad": "4605170185988091367",
+    "soladyExpUnderflowAtOrBelowWad": "-41446531673892822313",
+    "normalizedExpInputRangeWad": [
+      "-111111111111111111111",
+      "0"
+    ],
+    "normalizedSumRangeWad": [
+      "1000000000000000000",
+      "3000000000000000000"
+    ]
+  },
+  "validStates": [
+    {
+      "id": "ORIGIN",
+      "qAWei": "0",
+      "qBWei": "0",
+      "expectedLogPartitionWad": "4605170185988091368",
+      "expectedCostWad": "0",
+      "expectedPriceAWad": "10000000000000000",
+      "expectedPriceBWad": "10000000000000000",
+      "expectedNeutralPriceWad": "980000000000000000"
+    },
+    {
+      "id": "SUB_WAD_PLATEAU",
+      "qAWei": "425",
+      "qBWei": "0",
+      "expectedLogPartitionWad": "4605170185988091368",
+      "expectedCostWad": "4",
+      "expectedPriceAWad": "10000000000000000",
+      "expectedPriceBWad": "10000000000000000",
+      "expectedNeutralPriceWad": "980000000000000000"
+    },
+    {
+      "id": "MAX_SKEW_A",
+      "qAWei": "30000000000000000000000000",
+      "qBWei": "0",
+      "expectedLogPartitionWad": "111111111111111111111",
+      "expectedCostWad": "28756604049783215330630285",
+      "expectedPriceAWad": "1000000000000000000",
+      "expectedPriceBWad": "0",
+      "expectedNeutralPriceWad": "0"
+    },
+    {
+      "id": "MAX_BALANCED",
+      "qAWei": "30000000000000000000000000",
+      "qBWei": "30000000000000000000000000",
+      "expectedLogPartitionWad": "111804258291671056421",
+      "expectedCostWad": "28943753788534400564172937",
+      "expectedPriceAWad": "500000000000000000",
+      "expectedPriceBWad": "500000000000000000",
+      "expectedNeutralPriceWad": "0"
+    }
+  ],
+  "invalidStates": [
+    {
+      "id": "A_ONE_WEI_ABOVE_MAX",
+      "qAWei": "30000000000000000000000001",
+      "qBWei": "0",
+      "expectedError": "QuantityOutOfRange"
+    },
+    {
+      "id": "B_ONE_WEI_ABOVE_MAX",
+      "qAWei": "0",
+      "qBWei": "30000000000000000000000001",
+      "expectedError": "QuantityOutOfRange"
+    }
+  ]
+}

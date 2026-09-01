@@ -11,6 +11,7 @@
     "b": "270000",
     "settlementDecimals": 6,
     "sideTokenDecimals": 18,
+    "maximumSideQuantityWei": "30000000000000000000000000",
     "tradingFeeBps": "100",
     "bpsDenominator": "10000",
     "minimumBuyGrossUnits": "1000000",

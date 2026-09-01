@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import {
   DEFAULT_MARKET_CONFIG,
   INITIAL_MARKET_STATE,
+  MAX_SIDE_QUANTITY_WEI,
   allocateFee,
   calculateTradingFee,
   cost,
@@ -57,6 +58,19 @@ describe('LMSR foundations', () => {
     expect(sum.sub(1).abs().lt('1e-60')).toBe(true)
     expect(result.sideA.gt(result.sideB)).toBe(true)
     expect(result.sideB.gt(result.neutral)).toBe(true)
+  })
+
+  it('accepts the locked maximum quantity and rejects one wei above it', () => {
+    const maximumState: MarketState = {
+      qAWei: MAX_SIDE_QUANTITY_WEI,
+      qBWei: MAX_SIDE_QUANTITY_WEI,
+      reserveUnits: 30_000_000n * 1_000_000n,
+    }
+    expect(cost(maximumState).gt(0)).toBe(true)
+
+    expect(() =>
+      cost({ ...maximumState, qAWei: MAX_SIDE_QUANTITY_WEI + 1n }),
+    ).toThrow(/Market Version limit/)
   })
 })
 
