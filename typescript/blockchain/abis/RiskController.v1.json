@@ -1,0 +1,293 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [
+      {
+        "name": "riskControllerVersion_",
+        "type": "uint32",
+        "internalType": "uint32"
+      },
+      {
+        "name": "governanceTimelock_",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "emergencyRole_",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "effectiveMode",
+    "inputs": [
+      {
+        "name": "market",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint8",
+        "internalType": "enum IRiskController.RiskMode"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "emergencyRole",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "globalMode",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint8",
+        "internalType": "enum IRiskController.RiskMode"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "governanceTimelock",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "marketMode",
+    "inputs": [
+      {
+        "name": "market",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "mode",
+        "type": "uint8",
+        "internalType": "enum IRiskController.RiskMode"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "riskControllerVersion",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint32",
+        "internalType": "uint32"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "setEmergencyRole",
+    "inputs": [
+      {
+        "name": "newEmergencyRole",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "setGlobalMode",
+    "inputs": [
+      {
+        "name": "newMode",
+        "type": "uint8",
+        "internalType": "enum IRiskController.RiskMode"
+      },
+      {
+        "name": "reasonHash",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "function",
+    "name": "setMarketMode",
+    "inputs": [
+      {
+        "name": "market",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "newMode",
+        "type": "uint8",
+        "internalType": "enum IRiskController.RiskMode"
+      },
+      {
+        "name": "reasonHash",
+        "type": "bytes32",
+        "internalType": "bytes32"
+      }
+    ],
+    "outputs": [],
+    "stateMutability": "nonpayable"
+  },
+  {
+    "type": "event",
+    "name": "EmergencyRoleUpdated",
+    "inputs": [
+      {
+        "name": "oldEmergencyRole",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "newEmergencyRole",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "RiskModeChanged",
+    "inputs": [
+      {
+        "name": "scope",
+        "type": "uint8",
+        "indexed": true,
+        "internalType": "enum RiskController.RiskScope"
+      },
+      {
+        "name": "market",
+        "type": "address",
+        "indexed": true,
+        "internalType": "address"
+      },
+      {
+        "name": "reasonHash",
+        "type": "bytes32",
+        "indexed": true,
+        "internalType": "bytes32"
+      },
+      {
+        "name": "oldMode",
+        "type": "uint8",
+        "indexed": false,
+        "internalType": "enum IRiskController.RiskMode"
+      },
+      {
+        "name": "newMode",
+        "type": "uint8",
+        "indexed": false,
+        "internalType": "enum IRiskController.RiskMode"
+      },
+      {
+        "name": "actor",
+        "type": "address",
+        "indexed": false,
+        "internalType": "address"
+      },
+      {
+        "name": "effectiveAt",
+        "type": "uint256",
+        "indexed": false,
+        "internalType": "uint256"
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "error",
+    "name": "EmergencyCannotLowerRisk",
+    "inputs": [
+      {
+        "name": "currentMode",
+        "type": "uint8",
+        "internalType": "enum IRiskController.RiskMode"
+      },
+      {
+        "name": "requestedMode",
+        "type": "uint8",
+        "internalType": "enum IRiskController.RiskMode"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "InvalidModeTransition",
+    "inputs": [
+      {
+        "name": "currentMode",
+        "type": "uint8",
+        "internalType": "enum IRiskController.RiskMode"
+      },
+      {
+        "name": "requestedMode",
+        "type": "uint8",
+        "internalType": "enum IRiskController.RiskMode"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "InvalidRiskControllerVersion",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "RoleCollision",
+    "inputs": [
+      {
+        "name": "account",
+        "type": "address",
+        "internalType": "address"
+      }
+    ]
+  },
+  {
+    "type": "error",
+    "name": "Unauthorized",
+    "inputs": []
+  },
+  {
+    "type": "error",
+    "name": "ZeroAddress",
+    "inputs": []
+  }
+]
