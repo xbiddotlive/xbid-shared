@@ -1,0 +1,981 @@
+{
+  "schemaVersion": 1,
+  "productBaseline": "v1.4 + product overrides through 2026-08-31",
+  "generatedForDate": "2026-09-01",
+  "units": {
+    "settlement": "base units, 6 decimals unless a field ends in Usdc",
+    "sideToken": "wei, 18 decimals",
+    "percentages": "decimal ratios or BPS as named"
+  },
+  "testnetParameters": {
+    "b": "270000",
+    "settlementDecimals": 6,
+    "sideTokenDecimals": 18,
+    "tradingFeeBps": "100",
+    "bpsDenominator": "10000",
+    "minimumBuyGrossUnits": "1000000",
+    "minimumSellGrossUnits": "1000000",
+    "minimumFlipGrossUnits": "50000000",
+    "defaultSlippageBps": "300",
+    "maximumSlippageBps": "2000",
+    "quoteExpirySeconds": 30
+  },
+  "bSensitivity": [
+    {
+      "b": 100000,
+      "oneSidedNetBuys": [
+        {
+          "netCurveUsdc": 100,
+          "grossInputUnits": "101010102",
+          "feeUnits": "1010102",
+          "tokenOutputWei": "9535564847136768501520",
+          "sideAPrice": "0.01098950516495875824862518988903668663794",
+          "sideBPrice": "0.009990004998333749916680553637484477912748",
+          "neutralPrice": "0.9790204898367074918346942564734788354493",
+          "sideADominance": "0.5238208651881161830155808679234324957731",
+          "marginalPriceChangeBps": 989,
+          "averageExecutionPrice": "0.01048705573325599776103183291116379958312"
+        },
+        {
+          "netCurveUsdc": 500,
+          "grossInputUnits": "505050506",
+          "feeUnits": "5050506",
+          "tokenOutputWei": "40629948387993778695457",
+          "sideAPrice": "0.0149376455992445097809613701185446248919",
+          "sideBPrice": "0.009950124791926823133525642726075306819274",
+          "neutralPrice": "0.9751122296088286670855129871553800682888",
+          "sideADominance": "0.6002002334666136998308724732962021294109",
+          "marginalPriceChangeBps": 4937,
+          "averageExecutionPrice": "0.01230619333367774792892985364547611642759"
+        },
+        {
+          "netCurveUsdc": 1000,
+          "grossInputUnits": "1010101011",
+          "feeUnits": "10101011",
+          "tokenOutputWei": "69565239409877559559252",
+          "sideAPrice": "0.01985066458832362696183295888144641215037",
+          "sideBPrice": "0.0099004983374916805357390610213995311904",
+          "neutralPrice": "0.9702488370741846925024279800971540566592",
+          "sideADominance": "0.6672231481445404684663131862267441237543",
+          "marginalPriceChangeBps": 9850,
+          "averageExecutionPrice": "0.01437499545006971004944115709362981893525"
+        },
+        {
+          "netCurveUsdc": 5000,
+          "grossInputUnits": "5050505051",
+          "feeUnits": "50505051",
+          "tokenOutputWei": "181272312775714221109770",
+          "sideAPrice": "0.0582828697442931309994886454788692691485",
+          "sideBPrice": "0.009512294245007140090914256106274047786379",
+          "neutralPrice": "0.9322048360106997289095970984148566830651",
+          "sideADominance": "0.8596906669256171145437966785729298551075",
+          "marginalPriceChangeBps": 48282,
+          "averageExecutionPrice": "0.02758281131540718145886045596826817954488"
+        },
+        {
+          "netCurveUsdc": 10000,
+          "grossInputUnits": "10101010102",
+          "feeUnits": "101010102",
+          "tokenOutputWei": "244383217613756857744561",
+          "sideAPrice": "0.1042109561444000225673929652358682669976",
+          "sideBPrice": "0.009048374180359595731642495300647795282852",
+          "neutralPrice": "0.8867406696752403817009645394634839377195",
+          "sideADominance": "0.9201092382021480930131500334657363752919",
+          "marginalPriceChangeBps": 94210,
+          "averageExecutionPrice": "0.0409193401152644389237020946768154445621"
+        },
+        {
+          "netCurveUsdc": 50000,
+          "grossInputUnits": "50505050506",
+          "feeUnits": "505050506",
+          "tokenOutputWei": "418771539407008975482677",
+          "sideAPrice": "0.3995346468844929106322363625399163195448",
+          "sideBPrice": "0.006065306597126334236038016540000845257124",
+          "neutralPrice": "0.5944000465183807551317256209200828351981",
+          "sideADominance": "0.9850460865563161400675372873275534299647",
+          "marginalPriceChangeBps": 389534,
+          "averageExecutionPrice": "0.1193968436126324549609782750068503863368"
+        },
+        {
+          "netCurveUsdc": 70000,
+          "grossInputUnits": "70707070708",
+          "feeUnits": "707070708",
+          "tokenOutputWei": "462864518682954251524732",
+          "sideAPrice": "0.5083805492465045804422476995195094911764",
+          "sideBPrice": "0.004965853037914095147048003035156469786097",
+          "neutralPrice": "0.4866535977155813244107042974453340390375",
+          "sideADominance": "0.9903265065931780447855210281987835056307",
+          "marginalPriceChangeBps": 498380,
+          "averageExecutionPrice": "0.1512321579523521713521823170280099302853"
+        }
+      ]
+    },
+    {
+      "b": 200000,
+      "oneSidedNetBuys": [
+        {
+          "netCurveUsdc": 100,
+          "grossInputUnits": "101010102",
+          "feeUnits": "1010102",
+          "tokenOutputWei": "9760414168965409791741",
+          "sideAPrice": "0.01049487627062242213279099001165549590646",
+          "sideBPrice": "0.009995001249791692705729383939276207112056",
+          "neutralPrice": "0.9795101224795858851614796260490682969815",
+          "sideADominance": "0.5121980968488636090502106622837748598712",
+          "marginalPriceChangeBps": 494,
+          "averageExecutionPrice": "0.01024546686942485143559732176880612518668"
+        },
+        {
+          "netCurveUsdc": 500,
+          "grossInputUnits": "505050506",
+          "feeUnits": "5050506",
+          "tokenOutputWei": "44678745696179863409439",
+          "sideAPrice": "0.01247190882651447720348896308542853995752",
+          "sideBPrice": "0.009975031223974601240368798352672438990328",
+          "neutralPrice": "0.9775530599495109215561422385618990210522",
+          "sideADominance": "0.5556173268366142736635188965888655423293",
+          "marginalPriceChangeBps": 2471,
+          "averageExecutionPrice": "0.01119100351205139498805321638482491099492"
+        },
+        {
+          "netCurveUsdc": 1000,
+          "grossInputUnits": "1010101011",
+          "feeUnits": "10101011",
+          "tokenOutputWei": "81259896775987557390914",
+          "sideAPrice": "0.0149376455992445097809613701185446248919",
+          "sideBPrice": "0.009950124791926823133525642726075306819274",
+          "neutralPrice": "0.9751122296088286670855129871553800682888",
+          "sideADominance": "0.6002002334666136998308724732962021294109",
+          "marginalPriceChangeBps": 4937,
+          "averageExecutionPrice": "0.01230619333367774792892985364547611642759"
+        },
+        {
+          "netCurveUsdc": 5000,
+          "grossInputUnits": "5050505051",
+          "feeUnits": "50505051",
+          "tokenOutputWei": "252345224540113985276059",
+          "sideAPrice": "0.03444318709195065805928328651178182505214",
+          "sideBPrice": "0.009753099120283326686269865792810284595433",
+          "neutralPrice": "0.9558037137877660152544468476954078903524",
+          "sideADominance": "0.7793231070717528083957058061760679974581",
+          "marginalPriceChangeBps": 24443,
+          "averageExecutionPrice": "0.01981412570462642717150620515089296171971"
+        },
+        {
+          "netCurveUsdc": 10000,
+          "grossInputUnits": "10101010102",
+          "feeUnits": "101010102",
+          "tokenOutputWei": "362544625551428442219541",
+          "sideAPrice": "0.05828286974429313099948891990875346246296",
+          "sideBPrice": "0.009512294245007140090914253334255015530677",
+          "neutralPrice": "0.9322048360106997289095968267569915220064",
+          "sideADominance": "0.8596906669256171145437972816860504881313",
+          "marginalPriceChangeBps": 48282,
+          "averageExecutionPrice": "0.02758281131540718145886037988712017340943"
+        },
+        {
+          "netCurveUsdc": 50000,
+          "grossInputUnits": "50505050506",
+          "feeUnits": "505050506",
+          "tokenOutputWei": "676216224385356921432845",
+          "sideAPrice": "0.2289872247593091804372808361511823888042",
+          "sideBPrice": "0.007788007830714048682451708725745632436321",
+          "neutralPrice": "0.7632247674099767708802674551230719787595",
+          "sideADominance": "0.9671080131755207723580278139039058656848",
+          "marginalPriceChangeBps": 218987,
+          "averageExecutionPrice": "0.07394084642888778582754771604899683907355"
+        },
+        {
+          "netCurveUsdc": 70000,
+          "grossInputUnits": "70707070708",
+          "feeUnits": "707070708",
+          "tokenOutputWei": "751805853893485251720132",
+          "sideAPrice": "0.3023587911784736999887274711292856604373",
+          "sideBPrice": "0.00704688089718713434354820736233044787437",
+          "neutralPrice": "0.6905943279243391656677243215083838916883",
+          "sideADominance": "0.9772244611745064645303456867757911984909",
+          "marginalPriceChangeBps": 292358,
+          "averageExecutionPrice": "0.0931091446514827179107154167223817658756"
+        }
+      ]
+    },
+    {
+      "b": 270000,
+      "oneSidedNetBuys": [
+        {
+          "netCurveUsdc": 100,
+          "grossInputUnits": "101010102",
+          "feeUnits": "1010102",
+          "tokenOutputWei": "9821049854994319780735",
+          "sideAPrice": "0.0103665987738141910965726376592739356775",
+          "sideBPrice": "0.009996296982082684938418458205461879437601",
+          "neutralPrice": "0.9796371042441031239650089041352641848849",
+          "sideADominance": "0.509092562181984129985514519144345619587",
+          "marginalPriceChangeBps": 366,
+          "averageExecutionPrice": "0.01018221081009448120656177953274626693813"
+        },
+        {
+          "netCurveUsdc": 500,
+          "grossInputUnits": "505050506",
+          "feeUnits": "5050506",
+          "tokenOutputWei": "45911823729659164472166",
+          "sideAPrice": "0.01183163684984275386477122205622250239261",
+          "sideBPrice": "0.009981498617678356021567967453977550480883",
+          "neutralPrice": "0.9781868645324788901136608104897999471265",
+          "sideADominance": "0.5424088099328769125952875338679807249826",
+          "marginalPriceChangeBps": 1831,
+          "averageExecutionPrice": "0.01089044083598444868725927450299821717006"
+        },
+        {
+          "netCurveUsdc": 1000,
+          "grossInputUnits": "1010101011",
+          "feeUnits": "10101011",
+          "tokenOutputWei": "85207150826087810219962",
+          "sideAPrice": "0.01365988491832217249028137749457321871475",
+          "sideBPrice": "0.009963031465471493207168874974802290720053",
+          "neutralPrice": "0.9763770836162063343025497475306244905652",
+          "sideADominance": "0.5782471857578702556887517092626334841162",
+          "marginalPriceChangeBps": 3659,
+          "averageExecutionPrice": "0.01173610419201847952316369953572072749956"
+        },
+        {
+          "netCurveUsdc": 5000,
+          "grossInputUnits": "5050505051",
+          "feeUnits": "50505051",
+          "tokenOutputWei": "284580032950336017652822",
+          "sideAPrice": "0.02816462327218678625609297671947154528051",
+          "sideBPrice": "0.009816518956846598118625323467480085401207",
+          "neutralPrice": "0.9620188577709666156252816998130483693183",
+          "sideADominance": "0.7415422922867576071480503741615119223845",
+          "marginalPriceChangeBps": 18164,
+          "averageExecutionPrice": "0.01756974988077460707836492118231132038446"
+        },
+        {
+          "netCurveUsdc": 10000,
+          "grossInputUnits": "10101010102",
+          "feeUnits": "101010102",
+          "tokenOutputWei": "422011488690758954383271",
+          "sideAPrice": "0.04599596014172663333043583018270362854301",
+          "sideBPrice": "0.009636404443012862289591557270881781529869",
+          "neutralPrice": "0.9443676354152605043799726125464145899271",
+          "sideADominance": "0.8267842016972936156973909990022348553734",
+          "marginalPriceChangeBps": 35995,
+          "averageExecutionPrice": "0.02369603735439484058322907238694808012057"
+        },
+        {
+          "netCurveUsdc": 50000,
+          "grossInputUnits": "50505050506",
+          "feeUnits": "505050506",
+          "tokenOutputWei": "826409698735806331897824",
+          "sideAPrice": "0.1773591139977209279115420663768571464952",
+          "sideBPrice": "0.008309503899012919920085433672961038924291",
+          "neutralPrice": "0.8143313821032661521683724999501818145805",
+          "sideADominance": "0.9552455121757057314340187532262943878641",
+          "marginalPriceChangeBps": 167359,
+          "averageExecutionPrice": "0.06050267812259113438020362233919131837187"
+        },
+        {
+          "netCurveUsdc": 70000,
+          "grossInputUnits": "70707070708",
+          "feeUnits": "707070708",
+          "tokenOutputWei": "923643312954584683993240",
+          "sideAPrice": "0.2360932827517431614902137800642676595838",
+          "sideBPrice": "0.007716229467154109479896830504401336771881",
+          "neutralPrice": "0.7561904877811027290298893894313310036443",
+          "sideADominance": "0.9683514010715614838504164992287249868334",
+          "marginalPriceChangeBps": 226093,
+          "averageExecutionPrice": "0.07578683136467625018747664783882273681928"
+        }
+      ]
+    },
+    {
+      "b": 300000,
+      "oneSidedNetBuys": [
+        {
+          "netCurveUsdc": 100,
+          "grossInputUnits": "101010102",
+          "feeUnits": "1010102",
+          "tokenOutputWei": "9838559925012762974672",
+          "sideAPrice": "0.0103299450061106018858005720070443195023",
+          "sideBPrice": "0.009996667222160498970850499272656117984825",
+          "neutralPrice": "0.9796733877717288991433489287202995625129",
+          "sideADominance": "0.5081980651819235834040005558774624854771",
+          "marginalPriceChangeBps": 329,
+          "averageExecutionPrice": "0.01016408913115099779075189902133864428914"
+        },
+        {
+          "netCurveUsdc": 500,
+          "grossInputUnits": "505050506",
+          "feeUnits": "5050506",
+          "tokenOutputWei": "46280935955386517930859",
+          "sideAPrice": "0.01164862576357070791806682523550402583163",
+          "sideBPrice": "0.009983347214509386788706395704691878526953",
+          "neutralPrice": "0.9783680270219199052932267790598040956414",
+          "sideADominance": "0.5384911388052482629263499378615843532494",
+          "marginalPriceChangeBps": 1648,
+          "averageExecutionPrice": "0.01080358444958817429976248868355411723779"
+        },
+        {
+          "netCurveUsdc": 1000,
+          "grossInputUnits": "1010101011",
+          "feeUnits": "10101011",
+          "tokenOutputWei": "86429734647879298909691",
+          "sideAPrice": "0.01329450610602191169499926772621804364097",
+          "sideBPrice": "0.009966722160545233215202027598725070266253",
+          "neutralPrice": "0.9767387717334328550897987046750568860928",
+          "sideADominance": "0.5715307013744332156965980510683946709717",
+          "marginalPriceChangeBps": 3294,
+          "averageExecutionPrice": "0.01157009221507006798586156212500239777602"
+        },
+        {
+          "netCurveUsdc": 5000,
+          "grossInputUnits": "5050505051",
+          "feeUnits": "50505051",
+          "tokenOutputWei": "295815892521755164672841",
+          "sideAPrice": "0.02636326071659868542098971712864982139052",
+          "sideBPrice": "0.009834714538216174894737477604761112915247",
+          "neutralPrice": "0.9638020247451851396842728052665890656942",
+          "sideADominance": "0.7283076064618278899175279977408007820424",
+          "marginalPriceChangeBps": 16363,
+          "averageExecutionPrice": "0.01690240492955355803742195109719002596598"
+        },
+        {
+          "netCurveUsdc": 10000,
+          "grossInputUnits": "10101010102",
+          "feeUnits": "101010102",
+          "tokenOutputWei": "443765373421780856215827",
+          "sideAPrice": "0.04245606052281415697943653344976372963511",
+          "sideBPrice": "0.009672161004820059020409731985355921922878",
+          "neutralPrice": "0.947871778472365784000153734564880348442",
+          "sideADominance": "0.8144544217820158619047153182199049147646",
+          "marginalPriceChangeBps": 32456,
+          "averageExecutionPrice": "0.02253443057733891413099029708995589105046"
+        },
+        {
+          "netCurveUsdc": 50000,
+          "grossInputUnits": "50505050506",
+          "feeUnits": "505050506",
+          "tokenOutputWei": "885472060589873656981353",
+          "sideAPrice": "0.1619830923582920666955314306176771585159",
+          "sideBPrice": "0.008464817248906140740449177468508311530142",
+          "neutralPrice": "0.829552090392801792564019391913814529954",
+          "sideADominance": "0.9503378054420641485984224242129679206549",
+          "marginalPriceChangeBps": 151983,
+          "averageExecutionPrice": "0.05646705551239140336730287713934926431646"
+        },
+        {
+          "netCurveUsdc": 70000,
+          "grossInputUnits": "70707070708",
+          "feeUnits": "707070708",
+          "tokenOutputWei": "991848726817509304573723",
+          "sideAPrice": "0.2160293293265861522642710776005503642705",
+          "sideBPrice": "0.007918895663367816643795241640398481168985",
+          "neutralPrice": "0.7760517750100460310919336807590511545605",
+          "sideADominance": "0.9646396140727480729965902222478552951144",
+          "marginalPriceChangeBps": 206029,
+          "averageExecutionPrice": "0.07057527837395644671767209900411908515444"
+        }
+      ]
+    },
+    {
+      "b": 400000,
+      "oneSidedNetBuys": [
+        {
+          "netCurveUsdc": 100,
+          "grossInputUnits": "101010102",
+          "feeUnits": "1010102",
+          "tokenOutputWei": "9878264648116771979876",
+          "sideAPrice": "0.01024746906507796387524379765941920055869",
+          "sideBPrice": "0.009997500312473959960856123255965462620619",
+          "neutralPrice": "0.9797550306224480761639000790846153368207",
+          "sideADominance": "0.5061736016474585255328449737242614603443",
+          "marginalPriceChangeBps": 247,
+          "averageExecutionPrice": "0.01012323556436244708923881230537824426926"
+        },
+        {
+          "netCurveUsdc": 500,
+          "grossInputUnits": "505050506",
+          "feeUnits": "5050506",
+          "tokenOutputWei": "47141002652757396046131",
+          "sideAPrice": "0.01123672688466494216394516515333061521298",
+          "sideBPrice": "0.009987507809245808665010654897441104896839",
+          "neutralPrice": "0.9787757653060892491710441799492282798902",
+          "sideADominance": "0.5294290723183893035109815487163421143084",
+          "marginalPriceChangeBps": 1236,
+          "averageExecutionPrice": "0.01060647784017283179147933046910891609364"
+        },
+        {
+          "netCurveUsdc": 1000,
+          "grossInputUnits": "1010101011",
+          "feeUnits": "10101011",
+          "tokenOutputWei": "89357491392359726818878",
+          "sideAPrice": "0.01247190882651447720348896308542853995752",
+          "sideBPrice": "0.009975031223974601240368798352672438990328",
+          "neutralPrice": "0.9775530599495109215561422385618990210522",
+          "sideADominance": "0.5556173268366142736635188965888655423293",
+          "marginalPriceChangeBps": 2471,
+          "averageExecutionPrice": "0.01119100351205139498805321638482491099492"
+        },
+        {
+          "netCurveUsdc": 5000,
+          "grossInputUnits": "5050505051",
+          "feeUnits": "50505051",
+          "tokenOutputWei": "325764354715043361286836",
+          "sideAPrice": "0.02229797751105738621340162503151389127298",
+          "sideBPrice": "0.009875778004938814280672710858267536451788",
+          "neutralPrice": "0.9678262444840037995059256641102185722752",
+          "sideADominance": "0.6930486402176842927874539511670867768238",
+          "marginalPriceChangeBps": 12297,
+          "averageExecutionPrice": "0.01534851780936456981054806651429911058159"
+        },
+        {
+          "netCurveUsdc": 10000,
+          "grossInputUnits": "10101010102",
+          "feeUnits": "101010102",
+          "tokenOutputWei": "504690449080227970552119",
+          "sideAPrice": "0.034443187091950658059283369653916712301",
+          "sideBPrice": "0.009753099120283326686269864952990740279788",
+          "neutralPrice": "0.9558037137877660152544467653930925474192",
+          "sideADominance": "0.7793231070717528083957062361225726369134",
+          "marginalPriceChangeBps": 24443,
+          "averageExecutionPrice": "0.01981412570462642717150616589093521784594"
+        },
+        {
+          "netCurveUsdc": 50000,
+          "grossInputUnits": "50505050506",
+          "feeUnits": "505050506",
+          "tokenOutputWei": "1064518852845020195799011",
+          "sideAPrice": "0.1263280664412505511637565689993680331308",
+          "sideBPrice": "0.008824969025845954028648923545460928958275",
+          "neutralPrice": "0.864846964532903494807594507455171037911",
+          "sideADominance": "0.934703878493395550678567311268852600837",
+          "marginalPriceChangeBps": 116328,
+          "averageExecutionPrice": "0.04696957678708141753677818244403676384297"
+        },
+        {
+          "netCurveUsdc": 70000,
+          "grossInputUnits": "70707070708",
+          "feeUnits": "707070708",
+          "tokenOutputWei": "1200777609474486630933316",
+          "sideAPrice": "0.1689375494384847151403239416169332685583",
+          "sideBPrice": "0.008394570207692073584441172306899663953957",
+          "neutralPrice": "0.8226678803538232112752348860761670674878",
+          "sideADominance": "0.9526618740900328642681475591229294125559",
+          "marginalPriceChangeBps": 158937,
+          "averageExecutionPrice": "0.05829555735190223504052365120401410891551"
+        }
+      ]
+    },
+    {
+      "b": 500000,
+      "oneSidedNetBuys": [
+        {
+          "netCurveUsdc": 100,
+          "grossInputUnits": "101010102",
+          "feeUnits": "1010102",
+          "tokenOutputWei": "9902294104648168795798",
+          "sideAPrice": "0.01019798020131993400263990138245423089072",
+          "sideBPrice": "0.009998000199986667333306667662803492617265",
+          "neutralPrice": "0.979804019598693398664053430954742276492",
+          "sideADominance": "0.5049509852297224635230488616410363127331",
+          "marginalPriceChangeBps": 197,
+          "averageExecutionPrice": "0.01009866995902087753760176539786920433576"
+        },
+        {
+          "netCurveUsdc": 500,
+          "grossInputUnits": "505050506",
+          "feeUnits": "5050506",
+          "tokenOutputWei": "47677824235683842507600",
+          "sideAPrice": "0.01098950516495875824862518988903668663794",
+          "sideBPrice": "0.009990004998333749916680553637484477912748",
+          "neutralPrice": "0.9790204898367074918346942564734788354493",
+          "sideADominance": "0.5238208651881161830155808679234324957731",
+          "marginalPriceChangeBps": 989,
+          "averageExecutionPrice": "0.01048705573325599776103183291116379958312"
+        },
+        {
+          "netCurveUsdc": 1000,
+          "grossInputUnits": "1010101011",
+          "feeUnits": "10101011",
+          "tokenOutputWei": "91244160360716723149239",
+          "sideAPrice": "0.01197802131934026391202513160462888641424",
+          "sideBPrice": "0.009980019986673330667555301700963344581674",
+          "neutralPrice": "0.9780419586939864054204195666944077690041",
+          "sideADominance": "0.5454958915693392367970615568558706977106",
+          "marginalPriceChangeBps": 1978,
+          "averageExecutionPrice": "0.01095960548101584828968258277022025135686"
+        },
+        {
+          "netCurveUsdc": 5000,
+          "grossInputUnits": "5050505051",
+          "feeUnits": "50505051",
+          "tokenOutputWei": "347826197049387797796263",
+          "sideAPrice": "0.01985066458832362696183307562114063450338",
+          "sideBPrice": "0.009900498337491680535739059842210700661582",
+          "neutralPrice": "0.970248837074184692502427864536648664835",
+          "sideADominance": "0.6672231481445404684663145184452564715288",
+          "marginalPriceChangeBps": 9850,
+          "averageExecutionPrice": "0.01437499545006971004944103310933330522033"
+        },
+        {
+          "netCurveUsdc": 10000,
+          "grossInputUnits": "10101010102",
+          "feeUnits": "101010102",
+          "tokenOutputWei": "552650601074631280081899",
+          "sideAPrice": "0.02960331342631225080139399105301829963767",
+          "sideBPrice": "0.009801986733067553022208141504514966670327",
+          "neutralPrice": "0.960594699840620196176397867442466733692",
+          "sideADominance": "0.7512520728576572899398333687869367051338",
+          "marginalPriceChangeBps": 19603,
+          "averageExecutionPrice": "0.01809461526062752929225513135821482882756"
+        },
+        {
+          "netCurveUsdc": 50000,
+          "grossInputUnits": "50505050506",
+          "feeUnits": "505050506",
+          "tokenOutputWei": "1221916088068784288722807",
+          "sideAPrice": "0.1042109561444000225673933386399993224775",
+          "sideBPrice": "0.009048374180359595731642491528888895732551",
+          "neutralPrice": "0.88674066967524038170096416983111178179",
+          "sideADominance": "0.9201092382021480930131503274986482841351",
+          "marginalPriceChangeBps": 94210,
+          "averageExecutionPrice": "0.04091934011526443892370202770111962581452"
+        },
+        {
+          "netCurveUsdc": 70000,
+          "grossInputUnits": "70707070708",
+          "feeUnits": "707070708",
+          "tokenOutputWei": "1387149251294812850378238",
+          "sideAPrice": "0.1393353469551822385335462917334255317383",
+          "sideBPrice": "0.008693582353988058196630845538046206750118",
+          "neutralPrice": "0.8519710706908297032698228627285282615116",
+          "sideADominance": "0.9412710583359634124238554025945147535402",
+          "marginalPriceChangeBps": 129335,
+          "averageExecutionPrice": "0.05046320713842406714769134364329084134753"
+        }
+      ]
+    }
+  ],
+  "testnetCurve": [
+    {
+      "netCurveUsdc": 100,
+      "grossInputUnits": "101010102",
+      "feeUnits": "1010102",
+      "tokenOutputWei": "9821049854994319780735",
+      "sideAPrice": "0.0103665987738141910965726376592739356775",
+      "sideBPrice": "0.009996296982082684938418458205461879437601",
+      "neutralPrice": "0.9796371042441031239650089041352641848849",
+      "sideADominance": "0.509092562181984129985514519144345619587",
+      "marginalPriceChangeBps": 366,
+      "averageExecutionPrice": "0.01018221081009448120656177953274626693813"
+    },
+    {
+      "netCurveUsdc": 500,
+      "grossInputUnits": "505050506",
+      "feeUnits": "5050506",
+      "tokenOutputWei": "45911823729659164472166",
+      "sideAPrice": "0.01183163684984275386477122205622250239261",
+      "sideBPrice": "0.009981498617678356021567967453977550480883",
+      "neutralPrice": "0.9781868645324788901136608104897999471265",
+      "sideADominance": "0.5424088099328769125952875338679807249826",
+      "marginalPriceChangeBps": 1831,
+      "averageExecutionPrice": "0.01089044083598444868725927450299821717006"
+    },
+    {
+      "netCurveUsdc": 1000,
+      "grossInputUnits": "1010101011",
+      "feeUnits": "10101011",
+      "tokenOutputWei": "85207150826087810219962",
+      "sideAPrice": "0.01365988491832217249028137749457321871475",
+      "sideBPrice": "0.009963031465471493207168874974802290720053",
+      "neutralPrice": "0.9763770836162063343025497475306244905652",
+      "sideADominance": "0.5782471857578702556887517092626334841162",
+      "marginalPriceChangeBps": 3659,
+      "averageExecutionPrice": "0.01173610419201847952316369953572072749956"
+    },
+    {
+      "netCurveUsdc": 5000,
+      "grossInputUnits": "5050505051",
+      "feeUnits": "50505051",
+      "tokenOutputWei": "284580032950336017652822",
+      "sideAPrice": "0.02816462327218678625609297671947154528051",
+      "sideBPrice": "0.009816518956846598118625323467480085401207",
+      "neutralPrice": "0.9620188577709666156252816998130483693183",
+      "sideADominance": "0.7415422922867576071480503741615119223845",
+      "marginalPriceChangeBps": 18164,
+      "averageExecutionPrice": "0.01756974988077460707836492118231132038446"
+    },
+    {
+      "netCurveUsdc": 10000,
+      "grossInputUnits": "10101010102",
+      "feeUnits": "101010102",
+      "tokenOutputWei": "422011488690758954383271",
+      "sideAPrice": "0.04599596014172663333043583018270362854301",
+      "sideBPrice": "0.009636404443012862289591557270881781529869",
+      "neutralPrice": "0.9443676354152605043799726125464145899271",
+      "sideADominance": "0.8267842016972936156973909990022348553734",
+      "marginalPriceChangeBps": 35995,
+      "averageExecutionPrice": "0.02369603735439484058322907238694808012057"
+    },
+    {
+      "netCurveUsdc": 50000,
+      "grossInputUnits": "50505050506",
+      "feeUnits": "505050506",
+      "tokenOutputWei": "826409698735806331897824",
+      "sideAPrice": "0.1773591139977209279115420663768571464952",
+      "sideBPrice": "0.008309503899012919920085433672961038924291",
+      "neutralPrice": "0.8143313821032661521683724999501818145805",
+      "sideADominance": "0.9552455121757057314340187532262943878641",
+      "marginalPriceChangeBps": 167359,
+      "averageExecutionPrice": "0.06050267812259113438020362233919131837187"
+    },
+    {
+      "netCurveUsdc": 70000,
+      "grossInputUnits": "70707070708",
+      "feeUnits": "707070708",
+      "tokenOutputWei": "923643312954584683993240",
+      "sideAPrice": "0.2360932827517431614902137800642676595838",
+      "sideBPrice": "0.007716229467154109479896830504401336771881",
+      "neutralPrice": "0.7561904877811027290298893894313310036443",
+      "sideADominance": "0.9683514010715614838504164992287249868334",
+      "marginalPriceChangeBps": 226093,
+      "averageExecutionPrice": "0.07578683136467625018747664783882273681928"
+    }
+  ],
+  "balancedReserveStates": [
+    {
+      "reserveUsdc": 70000,
+      "state": {
+        "qAWei": "745176838988443980433305",
+        "qBWei": "745176838988443980433305",
+        "reserveUnits": "70000000000"
+      },
+      "cost": "69999.99999999999999999987618500342046067",
+      "reserveBuffer": "0.0000000000000000001238149965795393273294934616967741922733",
+      "prices": {
+        "sideA": "0.1219047561094486354850551727597180234489",
+        "sideB": "0.1219047561094486354850551727597180234489",
+        "neutral": "0.7561904877811027290298896544805639531022"
+      },
+      "dominance": {
+        "sideA": "0.5",
+        "sideB": "0.5"
+      }
+    },
+    {
+      "reserveUsdc": 100000,
+      "state": {
+        "qAWei": "851394976189462842837028",
+        "qBWei": "851394976189462842837028",
+        "reserveUnits": "100000000000"
+      },
+      "cost": "99999.99999999999999999969158202615248546",
+      "reserveBuffer": "0.0000000000000000003084179738475145437052823311176284733034",
+      "prices": {
+        "sideA": "0.1616655102662164995771171463144301716074",
+        "sideB": "0.1616655102662164995771171463144301716074",
+        "neutral": "0.6766689794675670008457657073711396567852"
+      },
+      "dominance": {
+        "sideA": "0.5",
+        "sideB": "0.5"
+      }
+    }
+  ],
+  "dominanceCapital": {
+    "fromInitial": [
+      {
+        "targetDominance": 0.52,
+        "curveInputUnits": "224906303",
+        "grossInputUnits": "227178084",
+        "tradingFeeUnits": "2271781",
+        "targetState": {
+          "qAWei": "21611531071854834972421",
+          "qBWei": "0",
+          "reserveUnits": "224906303"
+        },
+        "achievedDominance": "0.5200000000000000000000008785308584126817"
+      },
+      {
+        "targetDominance": 0.55,
+        "curveInputUnits": "599334320",
+        "grossInputUnits": "605388203",
+        "tradingFeeUnits": "6053883",
+        "targetState": {
+          "qAWei": "54181087774780813543293",
+          "qBWei": "0",
+          "reserveUnits": "599334320"
+        },
+        "achievedDominance": "0.5500000000000000000000006067302807220946"
+      }
+    ],
+    "fromBalanced70k": [
+      {
+        "targetDominance": 0.52,
+        "curveInputUnits": "2729018682",
+        "grossInputUnits": "2756584528",
+        "tradingFeeUnits": "27565846",
+        "targetState": {
+          "qAWei": "766788370060298815405726",
+          "qBWei": "745176838988443980433305",
+          "reserveUnits": "72729018682"
+        },
+        "achievedDominance": "0.5200000000000000000000008785308584126817"
+      },
+      {
+        "targetDominance": 0.55,
+        "curveInputUnits": "7216967221",
+        "grossInputUnits": "7289865880",
+        "tradingFeeUnits": "72898659",
+        "targetState": {
+          "qAWei": "799357926763224793976598",
+          "qBWei": "745176838988443980433305",
+          "reserveUnits": "77216967221"
+        },
+        "achievedDominance": "0.5500000000000000000000006067302807220946"
+      }
+    ],
+    "fromBalanced100k": [
+      {
+        "targetDominance": 0.52,
+        "curveInputUnits": "3613189593",
+        "grossInputUnits": "3649686458",
+        "tradingFeeUnits": "36496865",
+        "targetState": {
+          "qAWei": "873006507261317677809449",
+          "qBWei": "851394976189462842837028",
+          "reserveUnits": "103613189593"
+        },
+        "achievedDominance": "0.5200000000000000000000008785308584126817"
+      },
+      {
+        "targetDominance": 0.55,
+        "curveInputUnits": "9529756149",
+        "grossInputUnits": "9626016313",
+        "tradingFeeUnits": "96260164",
+        "targetState": {
+          "qAWei": "905576063964243656380321",
+          "qBWei": "851394976189462842837028",
+          "reserveUnits": "109529756149"
+        },
+        "achievedDominance": "0.5500000000000000000000006067302807220946"
+      }
+    ],
+    "crownChallengeAt70k": {
+      "challengerStart": {
+        "state": {
+          "qAWei": "734154900467975095453569",
+          "qBWei": "755766431539829930425989",
+          "reserveUnits": "70000000000"
+        },
+        "dominance": {
+          "sideA": "0.4800000000000000000000000459135860317628",
+          "sideB": "0.5199999999999999999999999540864139682372"
+        }
+      },
+      "challenger48To52": {
+        "targetDominance": 0.52,
+        "curveInputUnits": "5430729654",
+        "grossInputUnits": "5485585510",
+        "tradingFeeUnits": "54855856",
+        "targetState": {
+          "qAWei": "777377962611684765398410",
+          "qBWei": "755766431539829930425989",
+          "reserveUnits": "75430729654"
+        },
+        "achievedDominance": "0.5200000000000000000000008785308584126817"
+      },
+      "incumbent52To55": {
+        "targetDominance": 0.55,
+        "curveInputUnits": "4353287197",
+        "grossInputUnits": "4397259795",
+        "tradingFeeUnits": "43972598",
+        "targetState": {
+          "qAWei": "788335988242755908996862",
+          "qBWei": "734154900467975095453569",
+          "reserveUnits": "74353287197"
+        },
+        "achievedDominance": "0.5500000000000000000000006067302807220946"
+      }
+    },
+    "crownChallengeAt100k": {
+      "challengerStart": {
+        "state": {
+          "qAWei": "840373037668993957857293",
+          "qBWei": "861984568740848792829713",
+          "reserveUnits": "100000000000"
+        },
+        "dominance": {
+          "sideA": "0.4800000000000000000000000459135860317628",
+          "sideB": "0.5199999999999999999999999540864139682372"
+        }
+      },
+      "challenger48To52": {
+        "targetDominance": 0.52,
+        "curveInputUnits": "7178664641",
+        "grossInputUnits": "7251176406",
+        "tradingFeeUnits": "72511765",
+        "targetState": {
+          "qAWei": "883596099812703627802134",
+          "qBWei": "861984568740848792829713",
+          "reserveUnits": "107178664641"
+        },
+        "achievedDominance": "0.5200000000000000000000008785308584126817"
+      },
+      "incumbent52To55": {
+        "targetDominance": 0.55,
+        "curveInputUnits": "5758119661",
+        "grossInputUnits": "5816282486",
+        "tradingFeeUnits": "58162825",
+        "targetState": {
+          "qAWei": "894554125443774771400586",
+          "qBWei": "840373037668993957857293",
+          "reserveUnits": "105758119661"
+        },
+        "achievedDominance": "0.5500000000000000000000006067302807220946"
+      }
+    }
+  },
+  "initialOneSidedPriceImpactThresholds": [
+    {
+      "targetBps": 1000,
+      "netCurveInputUnits": "272865107",
+      "grossInputUnits": "275621321"
+    },
+    {
+      "targetBps": 3000,
+      "netCurveInputUnits": "819423998",
+      "grossInputUnits": "827701009"
+    }
+  ],
+  "minimumTradeEconomics": {
+    "buy": {
+      "grossUnits": "1000000",
+      "feeUnits": "10000"
+    },
+    "sell": {
+      "grossUnits": "1000000",
+      "feeUnits": "10000"
+    },
+    "flip": {
+      "sourceGrossUnits": "50000000",
+      "feeUnits": "500000"
+    }
+  },
+  "immediateRoundTrips": [
+    {
+      "grossBuyUsdc": 1,
+      "buyFeeUnits": "10000",
+      "sellGrossUnits": "989999",
+      "sellFeeUnits": "9900",
+      "finalReceivedUnits": "980099",
+      "totalLossUnits": "19901",
+      "lossBps": 199,
+      "reserveRemainderUnits": "1"
+    },
+    {
+      "grossBuyUsdc": 100,
+      "buyFeeUnits": "1000000",
+      "sellGrossUnits": "98999999",
+      "sellFeeUnits": "990000",
+      "finalReceivedUnits": "98009999",
+      "totalLossUnits": "1990001",
+      "lossBps": 199,
+      "reserveRemainderUnits": "1"
+    },
+    {
+      "grossBuyUsdc": 1000,
+      "buyFeeUnits": "10000000",
+      "sellGrossUnits": "989999999",
+      "sellFeeUnits": "9900000",
+      "finalReceivedUnits": "980099999",
+      "totalLossUnits": "19900001",
+      "lossBps": 199,
+      "reserveRemainderUnits": "1"
+    },
+    {
+      "grossBuyUsdc": 10000,
+      "buyFeeUnits": "100000000",
+      "sellGrossUnits": "9899999999",
+      "sellFeeUnits": "99000000",
+      "finalReceivedUnits": "9800999999",
+      "totalLossUnits": "199000001",
+      "lossBps": 199,
+      "reserveRemainderUnits": "1"
+    }
+  ],
+  "reserve70kVolumeScenarios": [
+    {
+      "sellToBuyRatio": 0,
+      "grossBuyVolume": "70707.07070707070707070707070707070707071",
+      "grossSellVolume": "0",
+      "totalGrossVolume": "70707.07070707070707070707070707070707071"
+    },
+    {
+      "sellToBuyRatio": 0.25,
+      "grossBuyVolume": "94594.59459459459459459459459459459459459",
+      "grossSellVolume": "23648.64864864864864864864864864864864865",
+      "totalGrossVolume": "118243.2432432432432432432432432432432432"
+    },
+    {
+      "sellToBuyRatio": 0.5,
+      "grossBuyVolume": "142857.1428571428571428571428571428571429",
+      "grossSellVolume": "71428.57142857142857142857142857142857143",
+      "totalGrossVolume": "214285.7142857142857142857142857142857143"
+    },
+    {
+      "sellToBuyRatio": 0.7,
+      "grossBuyVolume": "241379.3103448275862068965517241379310345",
+      "grossSellVolume": "168965.5172413793103448275862068965517241",
+      "totalGrossVolume": "410344.8275862068965517241379310344827586"
+    },
+    {
+      "sellToBuyRatio": 0.8,
+      "grossBuyVolume": "368421.0526315789473684210526315789473684",
+      "grossSellVolume": "294736.8421052631578947368421052631578947",
+      "totalGrossVolume": "663157.8947368421052631578947368421052632"
+    }
+  ],
+  "feeRevenueScenarios": [
+    {
+      "totalVolumeUsdc": 200000,
+      "hasReferrer": true,
+      "totalFeeUnits": "2000000000",
+      "allocation": {
+        "protocolUnits": "1400000000",
+        "creatorUnits": "400000000",
+        "referrerUnits": "200000000"
+      }
+    },
+    {
+      "totalVolumeUsdc": 200000,
+      "hasReferrer": false,
+      "totalFeeUnits": "2000000000",
+      "allocation": {
+        "protocolUnits": "1600000000",
+        "creatorUnits": "400000000",
+        "referrerUnits": "0"
+      }
+    },
+    {
+      "totalVolumeUsdc": 400000,
+      "hasReferrer": true,
+      "totalFeeUnits": "4000000000",
+      "allocation": {
+        "protocolUnits": "2800000000",
+        "creatorUnits": "800000000",
+        "referrerUnits": "400000000"
+      }
+    },
+    {
+      "totalVolumeUsdc": 400000,
+      "hasReferrer": false,
+      "totalFeeUnits": "4000000000",
+      "allocation": {
+        "protocolUnits": "3200000000",
+        "creatorUnits": "800000000",
+        "referrerUnits": "0"
+      }
+    }
+  ]
+}

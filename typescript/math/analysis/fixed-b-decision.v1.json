@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "status": "testnet candidate; awaiting mainnet lock",
+  "model": "standard fixed-b three-outcome LMSR",
+  "rationale": "270,000 is the provisional Testnet fixed-b selection. It preserves the standard LMSR and prioritizes balanced price feedback over the earlier 70K / 0.30 target.",
+  "parameters": {
+    "initialSidePrice": "0.01",
+    "baselineB": "300000",
+    "selectedB": "270000",
+    "tradingFeeRate": "0.01",
+    "maximumBFor70kAt030": "201947.577774939217743373907896902323678"
+  },
+  "priceByNetCurveInput": [
+    {
+      "netCurveInputUsdc": 100,
+      "grossInputUsdc": "101.010101010101010101010101010101010101",
+      "baselineB300kPrice": "0.01032994500611060188580058308021051084037",
+      "selectedB270kPrice": "0.01036659877381419109657265719043567355863"
+    },
+    {
+      "netCurveInputUsdc": 500,
+      "grossInputUsdc": "505.0505050505050505050505050505050505051",
+      "baselineB300kPrice": "0.01164862576357070791806685769805907506515",
+      "selectedB270kPrice": "0.01183163684984275386477122375861228241105"
+    },
+    {
+      "netCurveInputUsdc": 1000,
+      "grossInputUsdc": "1010.10101010101010101010101010101010101",
+      "baselineB300kPrice": "0.01329450610602191169499929929809522655488",
+      "selectedB270kPrice": "0.01365988491832217249028142276282175279257"
+    },
+    {
+      "netCurveInputUsdc": 5000,
+      "grossInputUsdc": "5050.505050505050505050505050505050505051",
+      "baselineB300kPrice": "0.02636326071659868542098972738095427104313",
+      "selectedB270kPrice": "0.02816462327218678625609305563529353566533"
+    },
+    {
+      "netCurveInputUsdc": 10000,
+      "grossInputUsdc": "10101.0101010101010101010101010101010101",
+      "baselineB300kPrice": "0.04245606052281415697943662175178940791755",
+      "selectedB270kPrice": "0.04599596014172663333043593932161095752707"
+    },
+    {
+      "netCurveInputUsdc": 20000,
+      "grossInputUsdc": "20202.0202020202020202020202020202020202",
+      "baselineB300kPrice": "0.0738480848186984396468705462695729948916",
+      "selectedB270kPrice": "0.08068312316575147628846731672004403057022"
+    },
+    {
+      "netCurveInputUsdc": 50000,
+      "grossInputUsdc": "50505.05050505050505050505050505050505051",
+      "baselineB300kPrice": "0.1619830923582920666955317741992329688806",
+      "selectedB270kPrice": "0.177359113997720927911542321680040975256"
+    },
+    {
+      "netCurveInputUsdc": 70000,
+      "grossInputUsdc": "70707.07070707070707070707070707070707071",
+      "baselineB300kPrice": "0.2160293293265861522642711640738516553528",
+      "selectedB270kPrice": "0.2360932827517431614902138626182565640674"
+    },
+    {
+      "netCurveInputUsdc": 100000,
+      "grossInputUsdc": "101010.101010101010101010101010101010101",
+      "baselineB300kPrice": "0.2906340025319486420786519440438741292214",
+      "selectedB270kPrice": "0.3164262350276619073088701172698459050084"
+    }
+  ],
+  "capitalByTargetPrice": [
+    {
+      "targetPrice": "0.02",
+      "candidateNetUsdc": "2741.140295284861950614039735724064077095",
+      "candidateGrossUsdc": "2768.828581095820152135393672448549572823",
+      "baselineB300kNetUsdc": "3045.711439205402167348933039693404530106"
+    },
+    {
+      "targetPrice": "0.03",
+      "candidateNetUsdc": "5510.395340425918278642356128679128733099",
+      "candidateGrossUsdc": "5566.055899420119473376117301696089629393",
+      "baselineB300kNetUsdc": "6122.661489362131420713729031865698592332"
+    },
+    {
+      "targetPrice": "0.05",
+      "candidateNetUsdc": "11135.5988041932549055147674079576737355",
+      "candidateGrossUsdc": "11248.0796001952069752674418262198724601",
+      "baselineB300kNetUsdc": "12372.88756021472767279418600884185970611"
+    },
+    {
+      "targetPrice": "0.10",
+      "candidateNetUsdc": "25733.74854716771221186707328580657489956",
+      "candidateGrossUsdc": "25993.68540117950728471421544020866151471",
+      "baselineB300kNetUsdc": "28593.05394129745801318563698422952766618"
+    },
+    {
+      "targetPrice": "0.20",
+      "candidateNetUsdc": "57535.16817439124493734148284284743526805",
+      "candidateGrossUsdc": "58116.33148928408579529442711398730835157",
+      "baselineB300kNetUsdc": "63927.96463821249437482386982538603918673"
+    },
+    {
+      "targetPrice": "0.30",
+      "candidateNetUsdc": "93588.6441830123531868542604943119284072",
+      "candidateGrossUsdc": "94533.98402324480119884268736799184687596",
+      "baselineB300kNetUsdc": "103987.3824255692813187269561047910315636"
+    },
+    {
+      "targetPrice": "0.40",
+      "candidateNetUsdc": "135209.327736372095345930614461180841774",
+      "candidateGrossUsdc": "136575.0785215879750968996105668493351253",
+      "baselineB300kNetUsdc": "150232.5863737467726065895716235342686378"
+    },
+    {
+      "targetPrice": "0.50",
+      "candidateNetUsdc": "184436.1480707398444230944812528997927373",
+      "candidateGrossUsdc": "186299.1394653937822455499810635351441791",
+      "baselineB300kNetUsdc": "204929.053411933160470104979169888658597"
+    },
+    {
+      "targetPrice": "0.70",
+      "candidateNetUsdc": "322359.0664875573288885832872548885151544",
+      "candidateGrossUsdc": "325615.2186743003322106901891463520355095",
+      "baselineB300kNetUsdc": "358176.7405417303654317592080609872390604"
+    },
+    {
+      "targetPrice": "0.80",
+      "candidateNetUsdc": "431834.6456767617120226468284302627820288",
+      "candidateGrossUsdc": "436196.61179470880002287558427299270912",
+      "baselineB300kNetUsdc": "479816.272974179680025163142700291980032"
+    },
+    {
+      "targetPrice": "0.90",
+      "candidateNetUsdc": "618984.3844279469455652995012239704554092",
+      "candidateGrossUsdc": "625236.7519474211571366661628524954095043",
+      "baselineB300kNetUsdc": "687760.4271421632728503327791377449504547"
+    },
+    {
+      "targetPrice": "0.95",
+      "candidateNetUsdc": "806134.1231791321791079521740176781287896",
+      "candidateGrossUsdc": "814276.8921001335142504567414319981098885",
+      "baselineB300kNetUsdc": "895704.5813101468656755024155751979208773"
+    }
+  ],
+  "crownAt70kReserve": {
+    "baselineB300k": {
+      "balancedSidePrice": "0.1119741124949769844540332024203912233564",
+      "challenger48To52": {
+        "netCurveInputUsdc": "5547.104131825420689305623141153594472234",
+        "grossInputUsdc": "5603.135486692344130611740546619792396196"
+      },
+      "incumbent52To55": {
+        "netCurveInputUsdc": "4445.858401501870993052374480975631762941",
+        "grossInputUsdc": "4490.76606212310201318421664745013309388"
+      }
+    },
+    "selectedB270k": {
+      "balancedSidePrice": "0.1219047561094486354850553461443896125182",
+      "challenger48To52": {
+        "netCurveInputUsdc": "5430.729653404335369041804702017728767858",
+        "grossInputUsdc": "5485.585508489227645496772426280534108948"
+      },
+      "incumbent52To55": {
+        "netCurveInputUsdc": "4353.287196472906188165088207888377899879",
+        "grossInputUsdc": "4397.259794417076957742513341301391818059"
+      }
+    }
+  },
+  "properties": {
+    "oneFixedBForEveryContest": true,
+    "usesExistingCostFunction": true,
+    "supportsExistingBuySellAndAtomicFlipMath": true,
+    "requiresNewCostFunction": false,
+    "marginalPriceSlope": "dP/dNetInput = (1 - P) / b; the absolute slope decreases as price rises."
+  }
+}

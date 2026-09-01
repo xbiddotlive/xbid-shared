@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "status": "generated from the canonical high-precision TypeScript model",
+  "b": "270000",
+  "sideTokenDecimals": 18,
+  "formula": "qSide - qOther = b * ln(dominance / (1 - dominance))",
+  "thresholds": {
+    "challengeOpen48": {
+      "comparison": "qChallenger - qCrown >= minimumDifferenceWei",
+      "exactDifferenceTokens": "-21611.531071854834972420049666138736281829821918575732239607612670579445144931182",
+      "minimumDifferenceWei": "-21611531071854834972420"
+    },
+    "takeover52": {
+      "comparison": "qChallenger - qCrown >= minimumDifferenceWei",
+      "exactDifferenceTokens": "21611.531071854834972420049666138736281829821918575732239607612670579445144931173",
+      "minimumDifferenceWei": "21611531071854834972421"
+    },
+    "defense55": {
+      "comparison": "qCrown - qChallenger >= minimumDifferenceWei",
+      "exactDifferenceTokens": "54181.087774780813543292338112421030442215949338817933372278341301007960118525065",
+      "minimumDifferenceWei": "54181087774780813543293"
+    },
+    "resetStrictlyBelow45": {
+      "comparison": "qChallenger - qCrown <= maximumDifferenceWei",
+      "exactDifferenceTokens": "-54181.087774780813543292338112421030442215949338817933372278341301007960118525071",
+      "maximumDifferenceWei": "-54181087774780813543293"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "@xbid/math",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Canonical TypeScript reference model for XBID LMSR quotes and fee accounting.",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "test-vectors"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.check.json",
+    "test": "vitest run",
+    "vectors": "node --import tsx scripts/generate-test-vectors.ts",
+    "thresholds": "node --import tsx scripts/generate-crown-thresholds.ts",
+    "analyze": "node --import tsx scripts/analyze-economic-parameters.ts",
+    "analyze:fixed-b": "node --import tsx scripts/analyze-fixed-b-candidate.ts",
+    "verify": "pnpm typecheck && pnpm test && pnpm vectors && pnpm thresholds && pnpm analyze && pnpm analyze:fixed-b"
+  },
+  "dependencies": {
+    "decimal.js": "10.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "26.4.0",
+    "tsx": "4.23.13",
+    "typescript": "7.0.2",
+    "vitest": "4.1.11"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@10.33.0"
+}
