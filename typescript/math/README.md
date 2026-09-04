@@ -18,7 +18,8 @@ XBID 的 TypeScript 数学参考实现。它是前端报价、后端校验、Ind
 - Sell All 尾仓清理、Review 余额精确匹配与零 Net Output 拒绝；
 - Crown 48% / 52% / 55% / 严格低于45%的有符号整数阈值；
 - Reserve Buffer 和固定测试向量。
-- Market Version 1 每侧 `30,000,000` Token 的 Quantity 上限。
+- Market Version 1 使用 `b = 270,000`；Market Version 2 使用 `b = 150,000`。
+- 两个版本每侧均使用 `30,000,000` Token 的 Quantity 上限。
 - 交易前后强制 `reserveUnits >= ceil(Cost × 1e6)` 的整数 Reserve 不变量。
 
 ## 单位
@@ -58,12 +59,13 @@ pnpm verify
 ## 示例
 
 ```ts
-import { INITIAL_MARKET_STATE, quoteBuy } from '@xbid/math'
+import { INITIAL_MARKET_STATE, marketConfigForVersion, quoteBuy } from '@xbid/math'
 
 const quote = quoteBuy({
   state: INITIAL_MARKET_STATE,
   side: 'A',
   grossInputUnits: 100_000_000n, // 100 USDC
+  config: marketConfigForVersion(2),
 })
 
 console.log({
@@ -95,5 +97,5 @@ test-vectors/lmsr-boundaries.v1.json
 test-vectors/trade-rounding.v1.json
 ```
 
-第二个文件记录 Testnet 暂定 `b = 270,000` 及其与历史 `b = 300,000`
-基线的对比；它不代表主网参数已经最终锁定。
+历史分析文件记录 Market Version 1 的 `b = 270,000` 决策。Market Version 2
+采用 `b = 150,000`，只影响 V2 新建 Contest，不改变任何 V1 市场。

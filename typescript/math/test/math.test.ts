@@ -2,12 +2,15 @@ import { describe, expect, it } from 'vitest'
 import {
   DEFAULT_MARKET_CONFIG,
   INITIAL_MARKET_STATE,
+  MARKET_V1_CONFIG,
+  MARKET_V2_CONFIG,
   MAX_SIDE_QUANTITY_WEI,
   allocateFee,
   calculateTradingFee,
   cost,
   dominanceDecimal,
   maximumDifferenceWeiStrictlyBelowDominance,
+  marketConfigForVersion,
   minimumDifferenceWeiForDominance,
   pricesDecimal,
   quoteBuy,
@@ -29,6 +32,20 @@ function expectSolvent(state: MarketState): void {
 }
 
 describe('LMSR foundations', () => {
+  it('selects immutable market-version liquidity parameters', () => {
+    expect(MARKET_V1_CONFIG.b).toBe('270000')
+    expect(MARKET_V2_CONFIG.b).toBe('150000')
+    expect(DEFAULT_MARKET_CONFIG).toBe(MARKET_V1_CONFIG)
+    expect(marketConfigForVersion(1)).toBe(MARKET_V1_CONFIG)
+    expect(marketConfigForVersion(2)).toBe(MARKET_V2_CONFIG)
+    expect(() => marketConfigForVersion(3)).toThrow(/unsupported market version/)
+  })
+
+  it('makes version two more price-sensitive than version one', () => {
+    const state = { qAWei: 100_000n * 10n ** 18n, qBWei: 0n, reserveUnits: 0n }
+    expect(pricesDecimal(state, MARKET_V2_CONFIG).sideA.gt(pricesDecimal(state, MARKET_V1_CONFIG).sideA)).toBe(true)
+  })
+
   it('starts at zero cost and 1% / 1% / 98% prices', () => {
     const initialCost = cost(INITIAL_MARKET_STATE)
     const initialPrices = pricesDecimal(INITIAL_MARKET_STATE)

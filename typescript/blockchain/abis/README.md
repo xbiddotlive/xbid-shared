@@ -1,9 +1,10 @@
 # XBID ABI Snapshots
 
-`MarketVault.v1.json`, `SideToken.v1.json`, `FeeVault.v1.json`, `RiskController.v1.json`, `MarketRegistry.v1.json`, and `XBIDFactory.v1.json` are generated from commit-compatible Solidity artifacts in `xbidlive/xbid-contracts` with:
+`MarketVault.v1.json`, `MarketVault.v2.json`, `SideToken.v1.json`, `FeeVault.v1.json`, `RiskController.v1.json`, `MarketRegistry.v1.json`, and `XBIDFactory.v1.json` are generated from commit-compatible Solidity artifacts in `xbidlive/xbid-contracts` with:
 
 ```bash
 forge inspect MarketVault abi --json
+forge inspect MarketVaultV2 abi --json
 forge inspect SideToken abi --json
 forge inspect FeeVault abi --json
 forge inspect RiskController abi --json
@@ -13,8 +14,8 @@ forge inspect XBIDFactory abi --json
 
 Rules:
 
-- Treat the `v1` files as immutable after Market Version 1 deployment.
-- Before deployment they may change only together with Solidity tests, protocol docs and a regenerated diff.
+- Treat every deployed version snapshot as immutable. V1 remains available for historical Contest interaction; V2 adds `b = 150,000` without replacing it.
+- Before a new version is deployed its snapshot may change only together with Solidity tests, protocol docs and a regenerated diff.
 - Frontend and Indexer select ABI by the immutable `marketVersion` stored in the Append-only Registry.
 - Fee claims and fee events select `FeeVault.v1.json` by immutable `feeVaultVersion`.
 - Risk banners and transaction gating read `RiskController.v1.json` by immutable `riskControllerVersion` and the controller address bound to each Market Version.

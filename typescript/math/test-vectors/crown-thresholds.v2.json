@@ -1,0 +1,20 @@
+{
+  "marketVersion": 2,
+  "b": "150000",
+  "sideTokenDecimals": 18,
+  "formula": "qSide - qOther = b * ln(dominance / (1 - dominance))",
+  "thresholds": {
+    "challengeOpen48": {
+      "minimumDifferenceWei": "-12006406151030463873566"
+    },
+    "takeover52": {
+      "minimumDifferenceWei": "12006406151030463873567"
+    },
+    "defense55": {
+      "minimumDifferenceWei": "30100604319322674190718"
+    },
+    "resetStrictlyBelow45": {
+      "maximumDifferenceWei": "-30100604319322674190718"
+    }
+  }
+}

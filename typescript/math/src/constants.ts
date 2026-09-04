@@ -10,7 +10,7 @@ export const INITIAL_FEE_SPLIT: FeeSplit = Object.freeze({
   referrerBps: 1_000n,
 })
 
-export const DEFAULT_MARKET_CONFIG: MarketConfig = Object.freeze({
+export const MARKET_V1_CONFIG: MarketConfig = Object.freeze({
   b: '270000',
   settlementDecimals: 6,
   sideTokenDecimals: 18,
@@ -24,6 +24,26 @@ export const DEFAULT_MARKET_CONFIG: MarketConfig = Object.freeze({
   maximumSlippageBps: 2_000n,
   quoteExpirySeconds: 30,
 })
+
+export const MARKET_V2_CONFIG: MarketConfig = Object.freeze({
+  ...MARKET_V1_CONFIG,
+  b: '150000',
+})
+
+export const MARKET_CONFIG_BY_VERSION: Readonly<Record<number, MarketConfig>> =
+  Object.freeze({
+    1: MARKET_V1_CONFIG,
+    2: MARKET_V2_CONFIG,
+  })
+
+/** Version 1 remains the default for callers that do not supply a version. */
+export const DEFAULT_MARKET_CONFIG = MARKET_V1_CONFIG
+
+export function marketConfigForVersion(marketVersion: number): MarketConfig {
+  const config = MARKET_CONFIG_BY_VERSION[marketVersion]
+  if (!config) throw new RangeError(`unsupported market version: ${marketVersion}`)
+  return config
+}
 
 export const INITIAL_MARKET_STATE: MarketState = Object.freeze({
   qAWei: 0n,
