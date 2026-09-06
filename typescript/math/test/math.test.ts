@@ -4,6 +4,7 @@ import {
   INITIAL_MARKET_STATE,
   MARKET_V1_CONFIG,
   MARKET_V2_CONFIG,
+  MARKET_V3_CONFIG,
   MAX_SIDE_QUANTITY_WEI,
   allocateFee,
   calculateTradingFee,
@@ -27,18 +28,20 @@ function stateAtDifference(differenceWei: bigint): MarketState {
     : { qAWei: 0n, qBWei: -differenceWei, reserveUnits: 0n }
 }
 
-function expectSolvent(state: MarketState): void {
-  expect(state.reserveUnits).toBeGreaterThanOrEqual(requiredReserveUnits(state))
+function expectSolvent(state: MarketState, config = DEFAULT_MARKET_CONFIG): void {
+  expect(state.reserveUnits).toBeGreaterThanOrEqual(requiredReserveUnits(state, config))
 }
 
 describe('LMSR foundations', () => {
   it('selects immutable market-version liquidity parameters', () => {
     expect(MARKET_V1_CONFIG.b).toBe('270000')
     expect(MARKET_V2_CONFIG.b).toBe('150000')
+    expect(MARKET_V3_CONFIG.b).toBe('150000')
     expect(DEFAULT_MARKET_CONFIG).toBe(MARKET_V1_CONFIG)
     expect(marketConfigForVersion(1)).toBe(MARKET_V1_CONFIG)
     expect(marketConfigForVersion(2)).toBe(MARKET_V2_CONFIG)
-    expect(() => marketConfigForVersion(3)).toThrow(/unsupported market version/)
+    expect(marketConfigForVersion(3)).toBe(MARKET_V3_CONFIG)
+    expect(() => marketConfigForVersion(4)).toThrow(/unsupported market version/)
   })
 
   it('makes version two more price-sensitive than version one', () => {
@@ -145,6 +148,40 @@ describe('Crown dominance thresholds', () => {
 })
 
 describe('quotes', () => {
+  it('quotes V2 buys across the former positive-exponent boundary', () => {
+    const buy = quoteBuy({
+      state: INITIAL_MARKET_STATE,
+      side: 'A',
+      grossInputUnits: 21_000_000n * 1_000_000n,
+      config: MARKET_V2_CONFIG,
+    })
+
+    expect(buy.tokenOutputWei).toBeGreaterThan(20_000_000n * 10n ** 18n)
+    expect(buy.stateAfter.qAWei).toBeLessThan(MAX_SIDE_QUANTITY_WEI)
+    expectSolvent(buy.stateAfter, MARKET_V2_CONFIG)
+  })
+
+  it('quotes a V2 minimum buy at maximum opposing skew', () => {
+    const state: MarketState = {
+      qAWei: 0n,
+      qBWei: MAX_SIDE_QUANTITY_WEI,
+      reserveUnits: requiredReserveUnits(
+        { qAWei: 0n, qBWei: MAX_SIDE_QUANTITY_WEI, reserveUnits: 0n },
+        MARKET_V2_CONFIG,
+      ),
+    }
+    const buy = quoteBuy({
+      state,
+      side: 'A',
+      grossInputUnits: 1_000_000n,
+      config: MARKET_V2_CONFIG,
+    })
+
+    expect(buy.tokenOutputWei).toBeGreaterThan(26_000_000n * 10n ** 18n)
+    expect(buy.stateAfter.qAWei).toBeLessThanOrEqual(MAX_SIDE_QUANTITY_WEI)
+    expectSolvent(buy.stateAfter, MARKET_V2_CONFIG)
+  })
+
   it('matches the locked v1.4 one-sided net-buy curve table', () => {
     const cases = [
       [100, 0.01037],

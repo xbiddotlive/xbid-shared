@@ -30,10 +30,16 @@ export const MARKET_V2_CONFIG: MarketConfig = Object.freeze({
   b: '150000',
 })
 
+/** Version 3 preserves V2 economics and fixes the onchain buy inverse domain. */
+export const MARKET_V3_CONFIG: MarketConfig = Object.freeze({
+  ...MARKET_V2_CONFIG,
+})
+
 export const MARKET_CONFIG_BY_VERSION: Readonly<Record<number, MarketConfig>> =
   Object.freeze({
     1: MARKET_V1_CONFIG,
     2: MARKET_V2_CONFIG,
+    3: MARKET_V3_CONFIG,
   })
 
 /** Version 1 remains the default for callers that do not supply a version. */

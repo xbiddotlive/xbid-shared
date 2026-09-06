@@ -158,13 +158,14 @@ export function solveBuyQuantity(
 
   const b = decimal(config.b)
   const logZ = logPartition(state, config)
-  const currentQuantity = quantityForSide(state, side, config)
-  const currentWeight = currentQuantity.div(b).exp()
-  const partition = logZ.exp()
-  const growth = curveInput.div(b).exp().sub(1)
-  const nextWeight = currentWeight.add(partition.mul(growth))
+  const targetLogZ = logZ.add(curveInput.div(b))
+  const { qA, qB } = stateQuantities(state, config)
+  const otherQuantity = side === 'A' ? qB : qA
+  const normalizedCurrentWeight = decimal(1)
+    .sub(otherQuantity.div(b).sub(targetLogZ).exp())
+    .sub(LOG_98.sub(targetLogZ).exp())
 
-  return b.mul(nextWeight.ln())
+  return b.mul(targetLogZ.add(normalizedCurrentWeight.ln()))
 }
 
 export function relativePriceChangeBps(before: DecimalJs, after: DecimalJs): number {
